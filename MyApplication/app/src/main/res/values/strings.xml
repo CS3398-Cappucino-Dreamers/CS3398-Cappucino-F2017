@@ -7,4 +7,11 @@
     <string name="passwordHint">Password</string>
     <string name="usernameHint">Email</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="msgMotivation"><b>Create a New Account.</b> Become a better person.
+        There is no going back, <i>literally.</i></string>
+    <string name="createAcctBtn">Create Account</string>
+    <string name="enterEmail">"Email"</string>
+    <string name="enterPass">"Password"</string>
+    <string name="enterConfirmPass">"Confirm Password"</string>
+    <string name="or">or</string>
 </resources>
