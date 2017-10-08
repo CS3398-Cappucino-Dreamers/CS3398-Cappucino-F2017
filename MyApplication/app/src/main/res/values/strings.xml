@@ -14,4 +14,10 @@
     <string name="enterPass">"Password"</string>
     <string name="enterConfirmPass">"Confirm Password"</string>
     <string name="or">or</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="fragmentOne">Hello from Frag1</string>
+    <string name="fragmentTwo">Hello from Frag2</string>
+    <string name="fragmentThree">Hello from Frag3</string>
+    <string name="fragmentFour">Hello from Frag 4</string>
 </resources>
