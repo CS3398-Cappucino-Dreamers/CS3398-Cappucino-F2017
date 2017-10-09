@@ -40,7 +40,7 @@ public class LogBook {
     }
 
     public void refreshDatabase() throws Exception {
-        // iterate through carList
+        // iterate through logList
         FileOutputStream outFile = new FileOutputStream(logData);
         ObjectOutputStream out = new ObjectOutputStream(outFile);
         out.writeObject(logList);
