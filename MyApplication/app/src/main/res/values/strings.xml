@@ -27,4 +27,18 @@
     Avatars that model activity and <u>can even die.</u></string>
     <string name="hpFragOne">HP</string>
     <string name="fragOneUsername">Big Ben</string>
+
+    <!-- Fragment Two of Scrollable Login Activity -->
+    <string name="fragmentTwoInfo">As you grow so will your avatar.\nBuy sweet accessories
+        with in-game points.</string>
+    <string name="fragmentTwoPts">500 pts</string>
+
+    <!-- Fragment Three of Scrollable Login Activity -->
+    <string name="fragmentThreeInfo">Easy. Simple. Quick.\nPredictive Forms, Geolocation tracking,
+        Fine tuned presets, and saved configurations make it a breeze.</string>
+
+    <!-- Fragment Four of Scrollable Login Activity -->
+    <string name="fragmentFourInfo">See where you are and where you are going.\nSet goals and watch
+    them come into a realization.</string>
+
 </resources>

@@ -1,21 +1,19 @@
 package com.example.ben.fitordie.Login;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.LevelListDrawable;
-import android.graphics.drawable.TransitionDrawable;
-import android.nfc.Tag;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.ben.fitordie.Login.SwipeViews.LoginFragmentPagerAdapter;
+import com.example.ben.fitordie.Login.swipeviews.LoginFragmentPagerAdapter;
 import com.example.ben.fitordie.R;
 
 /**
@@ -27,6 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     private ViewPager mPager; // For swiping between fragments
     private LoginFragmentPagerAdapter mAdapter; // represents each page as a Fragment
     private TextView signUpText; // Sign Up Text that will be clickable
+    private Button loginButton; // Logs you in and takes you to the homepage
+    private EditText usernameField; // username field of the user
 
 
 
@@ -37,6 +37,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fit_or_die);
+
+        loginButton = (Button)findViewById(R.id.loginBtn);
+        usernameField = (EditText)findViewById(R.id.username);
 
         signUpText = (TextView) findViewById(R.id.signUp);
 
@@ -64,6 +67,11 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToMainPageActivity(){
+        Intent intent = new Intent(this, HomePage.class);
+        startActivity(intent);
+    }
+
     /**
      * Initializes button and textview listeners
      */
@@ -72,6 +80,21 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 goToSignUpActivity();
+            }
+        });
+
+        // Simulates user logging in by fetching the name from the editText and sleeping the main
+        // thread for a second. Then goes to the mainPage with an intent
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(LoginActivity.this, "Logging in " + usernameField.getText(), Toast.LENGTH_SHORT).show();
+                try {
+                    Thread.currentThread().sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                goToMainPageActivity();
             }
         });
 

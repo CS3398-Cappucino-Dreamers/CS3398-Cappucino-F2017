@@ -19,19 +19,18 @@
         <activity
             android:name=".Login.SignUpActivity"
             android:label="@string/title_activity_sign_up"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
-       <activity
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".Login.CalendarActivity"
             android:label="CalendarActivity"
             android:theme="@style/AppTheme.NoActionBar">
-           <intent-filter>
-               <action android:name="android.intent.action.MAIN" />
-               <category android:name="android.intent.category.DEFAULT" />
-           </intent-filter>
-       </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Login.HomePage"></activity>
     </application>
 
-
-    </manifest>
+</manifest>

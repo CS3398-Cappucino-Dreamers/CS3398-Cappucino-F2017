@@ -1,7 +1,5 @@
-package com.example.ben.fitordie.Login.SwipeViews;
+package com.example.ben.fitordie.Login.swipeviews;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.example.ben.fitordie.Login.SwipeViews;
+package com.example.ben.fitordie.Login.swipeviews;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
