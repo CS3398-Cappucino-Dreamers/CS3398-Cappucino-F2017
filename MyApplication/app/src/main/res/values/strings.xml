@@ -14,4 +14,17 @@
     <string name="enterPass">"Password"</string>
     <string name="enterConfirmPass">"Confirm Password"</string>
     <string name="or">or</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="fragmentOne">Hello from Frag1</string>
+    <string name="fragmentTwo">Hello from Frag2</string>
+    <string name="fragmentThree">Hello from Frag3</string>
+    <string name="fragmentFour">Hello from Frag 4</string>
+
+
+    <!-- Fragment One of Scrollable Login Activity -->
+    <string name="fragmentOneInfo">Fitness in a very real way.
+    Avatars that model activity and <u>can even die.</u></string>
+    <string name="hpFragOne">HP</string>
+    <string name="fragOneUsername">Big Ben</string>
 </resources>
