@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">FitOrDie</string>
+    <string name="forgot_pass">Forgot Password?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="login">Log in</string>
+    <string name="passwordHint">Password</string>
+    <string name="usernameHint">Email</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="msgMotivation"><b>Create a New Account.</b> Become a better person.
+        There is no going back, <i>literally.</i></string>
+    <string name="createAcctBtn">Create Account</string>
+    <string name="enterEmail">"Email"</string>
+    <string name="enterPass">"Password"</string>
+    <string name="enterConfirmPass">"Confirm Password"</string>
+    <string name="or">or</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="fragmentOne">Hello from Frag1</string>
+    <string name="fragmentTwo">Hello from Frag2</string>
+    <string name="fragmentThree">Hello from Frag3</string>
+    <string name="fragmentFour">Hello from Frag 4</string>
+
+
+    <!-- Fragment One of Scrollable Login Activity -->
+    <string name="fragmentOneInfo">Fitness in a very real way.
+    Avatars that model activity and <u>can even die.</u></string>
+    <string name="hpFragOne">HP</string>
+    <string name="fragOneUsername">Big Ben</string>
+
+    <!-- Fragment Two of Scrollable Login Activity -->
+    <string name="fragmentTwoInfo">As you grow so will your avatar.\nBuy sweet accessories
+        with in-game points.</string>
+    <string name="fragmentTwoPts">500 pts</string>
+
+    <!-- Fragment Three of Scrollable Login Activity -->
+    <string name="fragmentThreeInfo">Easy. Simple. Quick.\nPredictive Forms, Geolocation tracking,
+        Fine tuned presets, and saved configurations make it a breeze.</string>
+
+    <!-- Fragment Four of Scrollable Login Activity -->
+    <string name="fragmentFourInfo">See where you are and where you are going.\nSet goals and watch
+    them come into a realization.</string>
+
+
+    <!-- Bottom nav bar -->
+    <string name="botNavBarItem1">Home</string>
+    <string name="botNavBarItem2">Log</string>
+    <string name="botNavBarItem3">Stats</string>
+
+</resources>

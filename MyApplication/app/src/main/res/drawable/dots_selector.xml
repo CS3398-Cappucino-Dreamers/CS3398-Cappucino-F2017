@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transition xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/page_one_dots"
+          android:id="@+id/pageOneDots">
+    </item>
+    <item android:drawable="@drawable/page_two_dots"
+        android:id="@+id/pageTwoDots">
+    </item>
+    <item android:drawable="@drawable/page_three_dots"
+        android:id="@+id/pageThreeDots">
+    </item>
+    <item android:drawable="@drawable/page_four_dots"
+        android:id="@+id/pageFourDots">
+    </item>
+
+</transition>
