@@ -1,2 +1,0 @@
-Android Volley - https://www.simplifiedcoding.net/android-volley-tutorial/
-Deprecated method - https://www.simplifiedcoding.net/android-login-and-registration-tutorial/
