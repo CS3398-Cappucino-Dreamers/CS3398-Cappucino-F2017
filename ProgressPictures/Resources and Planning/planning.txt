@@ -1,16 +1,19 @@
-Use a layer list for the different item types (hats, glasses, etc...) this should make it so only one of each is displayed at a time.
+Use a layer list or layer drawable for the different item types (hats, glasses, etc...) this should make it so only one of each is displayed at a time.
 
 Clip Drawable for progress bar.
 
 Create an overall layerList for the avatar itself so that we can layer on color and objects.
--skin tone
--hair color
--eye color
--shirt color
--hats
--glasses
+0-skin tone
+1-hair color
+2-eye color
+3-shirt color
+4-line art
+5-glasses
+6-hats
 
 Scale Drawable to resize objects to the correct scale if they aren't already. (look at how to position them on the screen)
 
 Positioning could be done in the actual drawing process if every portrait was made the same size and transparent layers allowed for stacking of images.
 
+LayerDrawable has a lot of good functions, likely start there and see what else that I need to incorportate.
+-setDrawable(int index, Drawable drawable) allows for the replacement of any of the layers, can be used to switch out the different drawables based on what they user has selected.
