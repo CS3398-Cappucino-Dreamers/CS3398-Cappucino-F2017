@@ -41,4 +41,14 @@
     <string name="fragmentFourInfo">See where you are and where you are going.\nSet goals and watch
     them come into a realization.</string>
 
+
+    <!-- Bottom nav bar -->
+    <string name="botNavBarItem1">Home</string>
+    <string name="botNavBarItem2">Log</string>
+    <string name="botNavBarItem3">Stats</string>
+
+
+    <!-- Menu App bar -->
+    <string name="vendorAppBar">vendor</string>
+
 </resources>
