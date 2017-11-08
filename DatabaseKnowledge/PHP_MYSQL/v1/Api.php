@@ -46,13 +46,14 @@
 			//we will create a record in the database
 			case 'addUser':
 				//first check the parameters required for this request are available or not 
-				isTheseParametersAvailable(array('email','password','guid'));
+				isTheseParametersAvailable(array('username','email','password','guid'));
 				
 				//creating a new dboperation object
 				$db = new DbOperation();
 				
 				//creating a new record in the database
 				$result = $db->addUser(
+					$_POST['username'],
 					$_POST['email'],
 					$_POST['password'],
 					$_POST['guid']
@@ -90,9 +91,10 @@
 
 			//the UPDATE operation
 			case 'updateUser':
-				isTheseParametersAvailable(array('email','password','guid'));
+				isTheseParametersAvailable(array('username','email','password','guid'));
 				$db = new DbOperation();
 				$result = $db->updateUser(
+					$_POST['username'],
 					$_POST['email'],
 					$_POST['password'],
 					$_POST['guid']

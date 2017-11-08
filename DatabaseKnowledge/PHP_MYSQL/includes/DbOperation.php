@@ -24,9 +24,9 @@ class DbOperation
 	* When this method is called a new record is created in the database
 	* May change database to have a fist/last name too. Guid will be added server side later.
 	*/
-	function addUser($email, $password, $guid){
-		$stmt = $this->con->prepare("INSERT INTO login (email, password, guid) VALUES (?, ?, ?)");
-		$stmt->bind_param("sss", $email, $password, $guid);
+	function addUser($username, $email, $password, $guid){
+		$stmt = $this->con->prepare("INSERT INTO login (username, email, password, guid) VALUES (?, ?, ?, ?)");
+		$stmt->bind_param("ssss", $username, $email, $password, $guid);
 		if($stmt->execute())
 			return true; 
 		return false; 
@@ -38,14 +38,15 @@ class DbOperation
 	* Not useful for app in this state.
 	*/
 	function getUsers(){
-		$stmt = $this->con->prepare("SELECT email, password, guid FROM login");
+		$stmt = $this->con->prepare("SELECT username email, password, guid FROM login");
 		$stmt->execute();
-		$stmt->bind_result($email, $password, $guid);
+		$stmt->bind_result($username, $email, $password, $guid);
 		
 		$users = array(); 
 		
 		while($stmt->fetch()){
 			$user  = array();
+			$user['username'] = $username; 
 			$user['email'] = $email; 
 			$user['password'] = $password; 
 			$user['guid'] = $guid;
@@ -61,9 +62,9 @@ class DbOperation
 	* When this method is called the record with the given guid is updated with the new given values
 	* May not allow updating email? Also the user will not know their guid.
 	*/
-	function updateUser($email, $password, $guid){
-		$stmt = $this->con->prepare("UPDATE login SET email = ?, password = ? WHERE guid = ?");
-		$stmt->bind_param("sss", $email, $password, $guid);
+	function updateUser($username, $email, $password, $guid){
+		$stmt = $this->con->prepare("UPDATE login SET username = ?, email = ?, password = ? WHERE guid = ?");
+		$stmt->bind_param("ssss", $username, $email, $password, $guid);
 		if($stmt->execute())
 			return true; 
 		return false; 
