@@ -1,0 +1,4 @@
+https://developer.android.com/guide/topics/resources/drawable-resource.html
+-all hyperlinked branches from that page
+- https://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch
+
