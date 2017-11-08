@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.ben.fitordie.Login.HPVendor;
 import com.example.ben.fitordie.R;
 
 /**
@@ -24,9 +25,8 @@ public class MenuItemListener implements android.support.v7.widget.Toolbar.OnMen
 
         switch(item.getTitle().toString()){
             case "vendor":
-                //intent = new Intent(context)
-                Toast.makeText(context, "OLOOL", Toast.LENGTH_SHORT).show();
-
+                intent = new Intent(context, HPVendor.class);
+                context.startActivity(intent);
 
         }
 

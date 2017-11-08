@@ -74,20 +74,20 @@
         </com.example.ben.fitordie.Login.customviews.CircleProgressBar>
 
         <TextView
+            android:text="Progress"
             android:id="@+id/progressField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:layout_marginRight="8dp"
             app:layout_constraintRight_toRightOf="@+id/custom_progressBar"
             android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="@+id/custom_progressBar"
             app:layout_constraintBottom_toBottomOf="@+id/custom_progressBar"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintTop_toTopOf="@+id/custom_progressBar"
-            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginEnd="8dp"
+            android:textSize="14sp"
+            app:layout_constraintHorizontal_bias="0.504" />
     </android.support.constraint.ConstraintLayout>
 
     <!-- The navigation drawer -->
