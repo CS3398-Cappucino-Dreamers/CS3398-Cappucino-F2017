@@ -47,4 +47,8 @@
     <string name="botNavBarItem2">Log</string>
     <string name="botNavBarItem3">Stats</string>
 
+
+    <!-- Menu App bar -->
+    <string name="vendorAppBar">vendor</string>
+
 </resources>
