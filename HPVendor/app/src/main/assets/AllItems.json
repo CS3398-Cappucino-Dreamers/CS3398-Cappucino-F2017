@@ -1,0 +1,90 @@
+{
+  "AllItems": [
+    {
+      "name": "Extend HP+5",
+      "description": "Permanently extends \nHP by 5",
+      "price": "100",
+      "icon": "https://image.ibb.co/dWBN8G/ExtendHP.png",
+      "category": "Extend HP"
+    },
+    {
+      "name": "Extend HP+10",
+      "description": "Permanently extends \nHP by 10",
+      "price": "150",
+      "icon": "https://image.ibb.co/dWBN8G/ExtendHP.png",
+      "category": "Extend HP"
+    },
+    {
+      "name": "Extend HP+20",
+      "description": "Permanently extends \nHP by 20",
+      "price": "200",
+      "icon": "https://image.ibb.co/dWBN8G/ExtendHP.png",
+      "category": "Extend HP"
+    },
+    {
+      "name": "Restore HP+1",
+      "description": "Restores 1 HP",
+      "price": "10",
+      "icon": "https://image.ibb.co/kKbpoG/RegenHP.png",
+      "category": "Restore HP"
+    },
+    {
+      "name": "Restore HP+5",
+      "description": "Restores 5 HP",
+      "price": "50",
+      "icon": "https://image.ibb.co/kKbpoG/RegenHP.png",
+      "category": "Restore HP"
+    },
+    {
+      "name": "Restore HP+10",
+      "description": "Restores 10 HP",
+      "price": "100",
+      "icon": "https://image.ibb.co/kKbpoG/RegenHP.png",
+      "category": "Restore HP"
+    },
+    {
+      "name": "Restore HP+25",
+      "description": "Restores 25 HP",
+      "price": "150",
+      "icon": "https://image.ibb.co/kKbpoG/RegenHP.png",
+      "category": "Restore HP"
+    },
+    {
+      "name": "Restore MAX HP",
+      "description": "Restores HP to max",
+      "price": "200",
+      "icon": "https://image.ibb.co/kKbpoG/RegenHP.png",
+      "category": "Restore HP"
+    },
+    {
+      "name": "Revive",
+      "description": "Revives dead avatar \nto half HP",
+      "price": "$0.99",
+      "icon": "https://image.ibb.co/dWBN8G/ExtendHP.png",
+      "category": "Revive"
+    },
+    {
+      "name": "Full Revive",
+      "description": "Revives dead avatar \nto full HP",
+      "price": "$1.99",
+      "icon": "https://image.ibb.co/dWBN8G/ExtendHP.png",
+      "category": "Revive"
+    },
+    {
+      "name": "Slow HP Damage (7 Days)",
+      "description": "Slows the amount of HP \ndamage when inactive for \n7 days",
+      "price": "200",
+      "icon": "https://image.ibb.co/cNW0vw/Slow_HPDamage.png",
+      "category": "Buffs"
+    },
+    {
+      "name": "Slow HP Damage (30 Days)",
+      "description": "Slows the amount of HP \ndamage when inactive for \n30 days",
+      "price": "350",
+      "icon": "https://image.ibb.co/cNW0vw/Slow_HPDamage.png",
+      "category": "Buffs"
+    }
+  ]
+}
+
+
