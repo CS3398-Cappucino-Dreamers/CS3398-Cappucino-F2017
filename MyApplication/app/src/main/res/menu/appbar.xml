@@ -5,10 +5,8 @@
     <item
         android:id="@+id/action_favorite"
         android:title="test"
+        android:icon="@drawable/vendor"
         app:showAsAction="ifRoom"/>
 
     <!-- Settings, should always be in the overflow -->
-    <item android:id="@+id/action_settings"
-        android:title="test2"
-        app:showAsAction="never"/>
 </menu>

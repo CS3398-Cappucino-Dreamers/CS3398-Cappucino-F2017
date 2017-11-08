@@ -17,11 +17,12 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.example.ben.fitordie.Login.bottomnav.BottomNavBar;
 import com.example.ben.fitordie.Login.customviews.CircleProgressBar;
+import com.example.ben.fitordie.Login.users.progresscircle.ProgressCircle;
 import com.example.ben.fitordie.R;
 
 public class HomePage extends AppCompatActivity {
 
-    private CircleProgressBar circleProgressBar;
+    private ProgressCircle circleProgressBar;
     private Thread animation; // animation thread
     private TextView progressField;
     private Button calendarBtn;
@@ -38,6 +39,8 @@ public class HomePage extends AppCompatActivity {
         mDrawerList = (ListView)findViewById(R.id.navList); // get Drawer ListView
         addDrawerItems(); // populate drawer
 
+        circleProgressBar = new ProgressCircle(findViewById(R.id.custom_progressBar));
+        circleProgressBar.animate(this); // Runs the progress circle animation
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
@@ -50,51 +53,8 @@ public class HomePage extends AppCompatActivity {
         calendarBtn = (Button)findViewById(R.id.calendarBtn);
         setBtnListeners();
 
-        circleProgressBar = (CircleProgressBar)findViewById(R.id.custom_progressBar);
         SeekBar seekBar = (SeekBar)findViewById(R.id.seekBar);
         goToCalendarIntent = new Intent(this, CalendarActivity.class);
-
-//        animation = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                 runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        for(int i =0; i< 700; i+=10){
-//                            circleProgressBar.setProgress(i/10);
-//                            try {
-//                                Thread.sleep(200);
-//                            } catch (InterruptedException e) {
-//                                e.printStackTrace();
-//                            }
-//                        }
-//                    }
-//                });
-//            }
-//        });
-//        animation.start();
-
-
-
-
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                circleProgressBar.setProgress(progress/10);
-                progressField.setText(progress/10 + "." + progress%10);
-
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
     }
 
     @Override
@@ -116,32 +76,6 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //startActivity(goToCalendarIntent;
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        int b = 0;
-                        for(int i = 0; i < 70; i++) {
-                            final int a = i;
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    circleProgressBar.setProgress(a);
-                                }
-                            });
-                            try {
-
-                                Thread.currentThread().sleep(50);
-                                if(a >= 50){
-                                    Thread.currentThread().sleep(b+=5);
-                                }
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                }).start();
-
-
             }
         });
     }
@@ -154,8 +88,11 @@ public class HomePage extends AppCompatActivity {
     }
 
     private void addDrawerItems() {
-        String[] osArray = { "User Stats", "Calendar", "Tracker", "Logbook","Machine Learning", "Settings" };
+        String[] osArray = { "Home Page", "Calendar", "Logger", "Tracker", "Stats", "Vertical Tester",
+                "Vendor", "Settings"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
     }
+
+
 }
