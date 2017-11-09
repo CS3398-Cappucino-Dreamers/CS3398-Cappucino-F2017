@@ -8,7 +8,7 @@ Fit or Die offers a new take on fitness apps. Unlike other fitness apps you can'
 <b>Design:</b> The design basics are mapped out in sketches and not yet implemented into the app. The artifacts that have been completed so far are visible in the comments under the issue that they apply to. 
   
   
-<b>Database:</b> The database (MySQL) is set up and running. The next steps will be setting up the API server between our app and the database. Also setting up remote desktop so others can work on it or use it for testing if needed.
+<b>Database:</b> The database (MySQL) is set up and running. The API server is working and CRUD operations are set up. The next step will be setting up a way so the app can securely talk to the API.
   
   
 <b>Miscellaneous:</b> Calendar functionality is not implemented at this time; however, the next sprint will involve implementing an interface for a user to interact with the Calendar.  This will allow the user to log his or her fitness progress.
