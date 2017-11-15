@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ public class HomePage extends AppCompatActivity {
     private AHBottomNavigationItem item1; // item1 of the bottom nav bar (Far left)
     private ListView mDrawerList; // listview for the navigation drawer
     private ArrayAdapter<String> mAdapter; // Adapts Data
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,11 @@ public class HomePage extends AppCompatActivity {
 
         circleProgressBar = (CircleProgressBar)findViewById(R.id.custom_progressBar);
         goToCalendarIntent = new Intent(this, CalendarActivity.class);
-        
+
+        progressBar = (ProgressBar)findViewById(R.id.progressBar);
+        progressBar.setProgress(100);
+
+
     }
 
 
@@ -92,6 +98,7 @@ public class HomePage extends AppCompatActivity {
                         @Override
                         public void run() {
                             circleProgressBar.setProgress(a);
+                            progressBar.setProgress(100-a);
                             circleProgressBar.setColor(Color.rgb(0,0,a*3));
                             progressField.setText("Goal: " + a + "% Complete");
                         }
