@@ -25,8 +25,6 @@ public class DrawerItemListener implements ListView.OnItemClickListener {
     }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Toast.makeText(context, "Position: " + position, Toast.LENGTH_SHORT).show();
-
             switch(position){
                 case 1: intent = new Intent(context, CalendarActivity.class);
                     context.startActivity(intent);

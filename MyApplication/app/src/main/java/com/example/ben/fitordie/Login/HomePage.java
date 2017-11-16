@@ -1,6 +1,7 @@
 package com.example.ben.fitordie.Login;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.example.ben.fitordie.Login.bottomnav.BottomNavBar;
 import com.example.ben.fitordie.Login.customviews.CircleProgressBar;
+import com.example.ben.fitordie.Login.listeners.BottomNavListener;
 import com.example.ben.fitordie.Login.listeners.DrawerItemListener;
 import com.example.ben.fitordie.Login.listeners.MenuItemListener;
 import com.example.ben.fitordie.R;
@@ -34,6 +37,7 @@ public class HomePage extends AppCompatActivity {
     private AHBottomNavigationItem item1; // item1 of the bottom nav bar (Far left)
     private ListView mDrawerList; // listview for the navigation drawer
     private ArrayAdapter<String> mAdapter; // Adapts Data
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,17 +53,22 @@ public class HomePage extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.lightGray));
-        toolbar.setOnMenuItemClickListener(new MenuItemListener(this));
+        toolbar.setOnMenuItemClickListener(new MenuItemListener(this)); // listener for menu
 
 
         BottomNavBar bottomNavBar = BottomNavBar.getInstance(this,findViewById(R. id.bottom_navigation));
+        bottomNavBar.setOnTabSelectedListener(new BottomNavListener(this)); // listener for bottom nav
 
         progressField = (TextView)findViewById(R.id.progressField);
         setBtnListeners();
 
         circleProgressBar = (CircleProgressBar)findViewById(R.id.custom_progressBar);
         goToCalendarIntent = new Intent(this, CalendarActivity.class);
-        
+
+        progressBar = (ProgressBar)findViewById(R.id.progressBar);
+        progressBar.setProgress(100);
+
+
     }
 
 
@@ -67,14 +76,17 @@ public class HomePage extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
+        circleProgressBar.setProgress(0);
+        progressField.setText("");
 
         new Thread(new Runnable() {
             @Override
             public void run() {
+
+
                 // Initial Sleep
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -86,6 +98,9 @@ public class HomePage extends AppCompatActivity {
                         @Override
                         public void run() {
                             circleProgressBar.setProgress(a);
+                            progressBar.setProgress(100-a);
+                            circleProgressBar.setColor(Color.rgb(0,0,a*3));
+                            progressField.setText("Goal: " + a + "% Complete");
                         }
                     });
                     try {
@@ -111,15 +126,6 @@ public class HomePage extends AppCompatActivity {
      * Button listener that takes you to the calenar activity.. Just temporary for demo #1
      */
     public void setBtnListeners() {
-        calendarBtn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                //startActivity(goToCalendarIntent;
-
-
-            }
-        });
     }
 
     @Override
