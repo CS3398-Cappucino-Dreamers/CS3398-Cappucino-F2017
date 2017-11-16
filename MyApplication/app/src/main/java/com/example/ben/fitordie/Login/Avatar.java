@@ -1,4 +1,4 @@
-package com.example.ben.fitordie.Login.users;
+package com.example.ben.fitordie.Login;
 
 import android.content.Intent;
 import android.os.Bundle;
