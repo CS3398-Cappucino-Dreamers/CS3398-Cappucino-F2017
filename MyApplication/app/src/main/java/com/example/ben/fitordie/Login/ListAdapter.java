@@ -1,4 +1,5 @@
 package com.example.ben.fitordie.Login;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,6 +69,8 @@ public class ListAdapter extends BaseAdapter {
             holder.nameView = (TextView) convertView.findViewById(R.id.name);
             holder.descriptionView = (TextView) convertView.findViewById(R.id.description);
             holder.priceView = (TextView) convertView.findViewById(R.id.price);
+            holder.currencyView = (TextView) convertView.findViewById(R.id.currency);
+            holder.price2View = (TextView) convertView.findViewById(R.id.price2);
             //holder.categoryView = (TextView) convertView.findViewById(R.id.category);
 
             convertView.setTag(holder);
@@ -81,6 +84,8 @@ public class ListAdapter extends BaseAdapter {
         TextView descriptionView = holder.descriptionView;
         TextView priceView = holder.priceView;
         ImageView iconView = holder.iconView;
+        TextView currencyView = holder.currencyView;
+        TextView price2View = holder.price2View;
         //TextView categoryView = holder.categoryView;
 
         // Gets corresponding item for row
@@ -90,6 +95,8 @@ public class ListAdapter extends BaseAdapter {
         nameView.setText(list.name);
         descriptionView.setText(list.description);
         priceView.setText(list.price);
+        currencyView.setText(list.currency);
+        price2View.setText(list.price2);
         //categoryView.setText(list.category);
 
         // Uses Picasso to load the image
@@ -103,6 +110,8 @@ public class ListAdapter extends BaseAdapter {
         public TextView descriptionView;
         public TextView priceView;
         public ImageView iconView;
+        public TextView currencyView;
+        public TextView price2View;
         //public TextView categoryView;
     }
 }

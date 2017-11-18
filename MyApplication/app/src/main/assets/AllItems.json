@@ -1,90 +1,136 @@
 {
   "AllItems": [
     {
+      "id": "0",
       "name": "Extend HP+5",
       "description": "Permanently extends \nHP by 5",
       "price": "100",
+      "currency": "",
+      "price2": "",
+      "addHP": "5",
       "icon": "https://image.ibb.co/dWBN8G/ExtendHP.png",
       "category": "Extend HP"
     },
     {
+      "id": "1",
       "name": "Extend HP+10",
       "description": "Permanently extends \nHP by 10",
       "price": "150",
+      "currency": "",
+      "price2": "",
+      "addHP": "10",
       "icon": "https://image.ibb.co/dWBN8G/ExtendHP.png",
       "category": "Extend HP"
     },
     {
+      "id": "2",
       "name": "Extend HP+20",
       "description": "Permanently extends \nHP by 20",
       "price": "200",
+      "currency": "",
+      "price2": "",
+      "addHP": "20",
       "icon": "https://image.ibb.co/dWBN8G/ExtendHP.png",
       "category": "Extend HP"
     },
     {
+      "id": "3",
       "name": "Restore HP+1",
       "description": "Restores 1 HP",
       "price": "10",
+      "currency": "",
+      "price2": "",
+      "addHP": "1",
       "icon": "https://image.ibb.co/kKbpoG/RegenHP.png",
       "category": "Restore HP"
     },
     {
+      "id": "4",
       "name": "Restore HP+5",
       "description": "Restores 5 HP",
       "price": "50",
+      "currency": "",
+      "price2": "",
+      "addHP": "5",
       "icon": "https://image.ibb.co/kKbpoG/RegenHP.png",
       "category": "Restore HP"
     },
     {
+      "id": "5",
       "name": "Restore HP+10",
       "description": "Restores 10 HP",
       "price": "100",
+      "currency": "",
+      "price2": "",
+      "addHP": "10",
       "icon": "https://image.ibb.co/kKbpoG/RegenHP.png",
       "category": "Restore HP"
     },
     {
+      "id": "6",
       "name": "Restore HP+25",
       "description": "Restores 25 HP",
       "price": "150",
+      "currency": "",
+      "price2": "",
+      "addHP": "25",
       "icon": "https://image.ibb.co/kKbpoG/RegenHP.png",
       "category": "Restore HP"
     },
     {
+      "id": "7",
       "name": "Restore MAX HP",
       "description": "Restores HP to max",
       "price": "200",
+      "currency": "",
+      "price2": "",
+      "addHP": "",
       "icon": "https://image.ibb.co/kKbpoG/RegenHP.png",
       "category": "Restore HP"
     },
     {
+      "id": "8",
       "name": "Revive",
       "description": "Revives dead avatar \nto half HP",
-      "price": "$0.99",
-      "icon": "https://image.ibb.co/dWBN8G/ExtendHP.png",
+      "price": "300",
+      "currency": " or $",
+      "price2": "0.99",
+      "addHP": "",
+      "icon": "https://image.ibb.co/iyQ3F6/Revive.png",
       "category": "Revive"
     },
     {
+      "id": "9",
       "name": "Full Revive",
       "description": "Revives dead avatar \nto full HP",
-      "price": "$1.99",
-      "icon": "https://image.ibb.co/dWBN8G/ExtendHP.png",
+      "price": "400",
+      "currency": " or $",
+      "price2": "1.99",
+      "addHP": "",
+      "icon": "https://image.ibb.co/iyQ3F6/Revive.png",
       "category": "Revive"
     },
     {
+      "id": "10",
       "name": "Slow HP Damage (7 Days)",
       "description": "Slows the amount of HP \ndamage when inactive for \n7 days",
       "price": "200",
+      "currency": "",
+      "price2": "",
+      "addHP": "",
       "icon": "https://image.ibb.co/cNW0vw/Slow_HPDamage.png",
       "category": "Buffs"
     },
     {
+      "id": "11",
       "name": "Slow HP Damage (30 Days)",
       "description": "Slows the amount of HP \ndamage when inactive for \n30 days",
       "price": "350",
+      "currency": "",
+      "price2": "",
+      "addHP": "",
       "icon": "https://image.ibb.co/cNW0vw/Slow_HPDamage.png",
       "category": "Buffs"
     }
   ]
 }
-
-
