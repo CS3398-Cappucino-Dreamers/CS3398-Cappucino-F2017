@@ -29,8 +29,10 @@ public class DrawerItemListener implements ListView.OnItemClickListener {
             switch(position){
                 case 1: intent = new Intent(context, CalendarActivity.class);
                     context.startActivity(intent);
+                    break;
                 case 2: intent = new Intent(context, Avatar.class);
                     context.startActivity(intent);
+                    break;
             }
         }
 }
