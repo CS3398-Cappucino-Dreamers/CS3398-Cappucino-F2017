@@ -38,49 +38,10 @@ public class Avatar extends AppCompatActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.lightGray));
         toolbar.setOnMenuItemClickListener(new MenuItemListener(this));
 
-        progressBar = (ProgressBar)findViewById(R.id.progressBar);
-        progressBar.setProgress(100);
 
 
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-
-                // Initial Sleep
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                // Animation
-                int b = 0;
-                for(int i = 0; i < 70; i++) {
-                    final int a = i;
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            progressBar.setProgress(100-a);
-                        }
-                    });
-                    try {
-
-                        Thread.currentThread().sleep(50);
-                        if(a >= 50){
-                            Thread.currentThread().sleep(b+=5);
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }).start();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
