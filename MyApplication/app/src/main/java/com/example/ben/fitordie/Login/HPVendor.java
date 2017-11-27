@@ -14,13 +14,35 @@ import android.content.Context;
 import com.example.ben.fitordie.R;
 
 public class HPVendor extends AppCompatActivity {
-    public static final String TAG = "HP Vendor";
+    private static final String TAG = "HP Vendor";
     private ListView mListView;
+    private ProgressBar HPBar;
+
+    // Sample HP & Pts data for testing conditional statements
+    final int MAX_HP = 500;
+    int userHP = 0;
+    int userMaxHP = 100;
+    int Pts = 500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hp_vendor);
+
+        // Gets and sets the HP & Pts
+        final TextView pointsView = (TextView)findViewById(R.id.Pt);
+        final TextView healthView = (TextView)findViewById(R.id.HP);
+        pointsView.setText(Integer.toString(Pts));
+        healthView.setText(Integer.toString(userHP) + "/" + Integer.toString(userMaxHP));
+
+        final AvatarInfo avatarInfo = new AvatarInfo();
+        avatarInfo.setUserHP(userHP);
+        avatarInfo.setUserMaxHP(userMaxHP);
+        avatarInfo.setPoints(Pts);
+
+        HPBar = (ProgressBar)findViewById(R.id.progressBar);
+        HPBar.setMax(userMaxHP);
+        HPBar.setProgress(userHP);
 
         final Context context = this;
 
@@ -46,7 +68,9 @@ public class HPVendor extends AppCompatActivity {
                 final String currency = list.currency;
 
                 // Dialog to confirm purchase
-                AlertDialogs.confirmDialogHP(HPVendor.this, item, price, currency, price2, position);
+                AlertDialogs.confirmDialogHP(HPVendor.this, item, price, currency, price2, position,
+                                            avatarInfo, MAX_HP, pointsView, healthView,
+                                            Integer.parseInt(addHP), HPBar);
             }
         });
     }
