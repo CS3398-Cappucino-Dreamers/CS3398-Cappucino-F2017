@@ -84,7 +84,7 @@
       "price": "200",
       "currency": "",
       "price2": "",
-      "addHP": "",
+      "addHP": "0",
       "icon": "https://image.ibb.co/kKbpoG/RegenHP.png",
       "category": "Restore HP"
     },
@@ -95,7 +95,7 @@
       "price": "300",
       "currency": " or $",
       "price2": "0.99",
-      "addHP": "",
+      "addHP": "0",
       "icon": "https://image.ibb.co/iyQ3F6/Revive.png",
       "category": "Revive"
     },
@@ -106,7 +106,7 @@
       "price": "400",
       "currency": " or $",
       "price2": "1.99",
-      "addHP": "",
+      "addHP": "0",
       "icon": "https://image.ibb.co/iyQ3F6/Revive.png",
       "category": "Revive"
     },
@@ -117,7 +117,7 @@
       "price": "200",
       "currency": "",
       "price2": "",
-      "addHP": "",
+      "addHP": "0",
       "icon": "https://image.ibb.co/cNW0vw/Slow_HPDamage.png",
       "category": "Buffs"
     },
@@ -128,7 +128,7 @@
       "price": "350",
       "currency": "",
       "price2": "",
-      "addHP": "",
+      "addHP": "0",
       "icon": "https://image.ibb.co/cNW0vw/Slow_HPDamage.png",
       "category": "Buffs"
     }
