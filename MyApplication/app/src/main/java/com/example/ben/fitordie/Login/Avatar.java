@@ -7,9 +7,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Button;
 
 import com.example.ben.fitordie.Login.CalendarActivity;
 import com.example.ben.fitordie.Login.bottomnav.BottomNavBar;
@@ -38,10 +41,15 @@ public class Avatar extends AppCompatActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.lightGray));
         toolbar.setOnMenuItemClickListener(new MenuItemListener(this));
 
-
+        Button customize = (Button) findViewById(R.id.customize);
+        // Redirects to avatar shop on button click
+        customize.setOnClickListener(new OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(Avatar.this, AvatarShop.class));
+            }
+        });
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
