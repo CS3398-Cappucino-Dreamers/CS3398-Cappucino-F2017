@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.example.ben.fitordie.Login.CalendarActivity;
 import com.example.ben.fitordie.Login.HomePage;
+import com.example.ben.fitordie.Login.WorkoutTracker;
 import com.example.ben.fitordie.R;
 
 /**
@@ -28,6 +29,11 @@ public class DrawerItemListener implements ListView.OnItemClickListener {
             switch(position){
                 case 1: intent = new Intent(context, CalendarActivity.class);
                     context.startActivity(intent);
+                    break;
+                case 2: intent = new Intent(context, WorkoutTracker.class);
+                    context.startActivity(intent);
+                    break;
+
             }
         }
 }

@@ -7,4 +7,7 @@
     <color name="darkishRed">#af0a0a</color>
     <color name="blackishGray">#262626</color>
     <color name="healthGreen">#1f7526</color>
+    <color name="pastel_redishPink">#D67065</color>
+    <color name="nav_bar_white">#ffffff</color>
+    <color name="light_grayish_blue">#C8D6DB</color>
 </resources>

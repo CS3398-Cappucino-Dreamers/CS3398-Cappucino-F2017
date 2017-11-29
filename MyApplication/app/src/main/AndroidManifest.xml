@@ -35,7 +35,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Login.HomePage" />
-        <activity android:name=".Login.StatsActivity"></activity>
+        <activity android:name=".Login.StatsActivity" />
+        <activity android:name=".Login.WorkoutTracker"></activity>
     </application>
 
 </manifest>

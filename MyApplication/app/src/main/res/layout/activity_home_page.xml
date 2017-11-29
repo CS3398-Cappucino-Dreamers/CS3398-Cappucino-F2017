@@ -100,39 +100,6 @@
             android:layout_marginRight="43dp"
             app:layout_constraintRight_toRightOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="217dp"
-            android:layout_height="244dp"
-            app:srcCompat="@drawable/avatar_joy"
-            tools:layout_editor_absoluteX="84dp"
-            tools:layout_editor_absoluteY="150dp" />
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            tools:layout_editor_absoluteY="66dp"
-            tools:layout_editor_absoluteX="8dp" />
-
-        <RatingBar
-            android:id="@+id/ratingBar2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteY="406dp"
-            tools:layout_editor_absoluteX="72dp" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="163dp"
-            android:layout_marginTop="495dp" />
     </android.support.constraint.ConstraintLayout>
 
     <!-- The navigation drawer -->

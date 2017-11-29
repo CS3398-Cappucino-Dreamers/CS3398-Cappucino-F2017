@@ -51,9 +51,12 @@ public class BottomNavBar extends AppCompatActivity{
                  * @return instance of BottomNavBar
                  */
         public static BottomNavBar getInstance(Context context, View view){
-        if(bottomNavBar == null){
+            // Having only one instance wasn't working for multiple activites and just the
+            // activity lifecycle in general. Now a new one gets instantiated every time. Works.
+//        if(bottomNavBar == null){
+//            bottomNavBar = new BottomNavBar(context,view);
+//        }
             bottomNavBar = new BottomNavBar(context,view);
-        }
             return bottomNavBar;
         }
 
