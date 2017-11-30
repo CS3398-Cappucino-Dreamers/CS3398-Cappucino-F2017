@@ -19,7 +19,11 @@
         <activity
             android:name=".Login.SignUpActivity"
             android:label="@string/title_activity_sign_up"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Login.HPVendor"
+            android:label="HPVendor"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Login.CalendarActivity"
             android:label="CalendarActivity"
@@ -30,7 +34,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login.HomePage"></activity>
+        <activity android:name=".Login.HomePage" />
+        <activity android:name=".Login.StatsActivity" />
+        <activity android:name=".Login.WorkoutTracker"></activity>
     </application>
 
 </manifest>

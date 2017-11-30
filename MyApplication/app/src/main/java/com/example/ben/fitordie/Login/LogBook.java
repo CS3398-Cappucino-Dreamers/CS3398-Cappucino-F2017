@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Logbook class
+ * LogBook class
  */
 
 public class LogBook {
@@ -47,7 +47,6 @@ public class LogBook {
         out.close();
         outFile.close();
     }
-
     // search for a log by its date
     // this will help us auto-fill our form in the app
     public int searchByDate(Date date) {
@@ -55,7 +54,6 @@ public class LogBook {
         // local variables to help
         boolean found = false;
         int index = 0;
-
 
         for (Log log : logList) {
             if (date.equals(log.getDate())) {
@@ -72,4 +70,21 @@ public class LogBook {
 
         return index;
     }
+    public void addLog(Date date, String category, String description) {
+        // Log
+        Log newLog = new Log();
+
+
+        newLog.setDate(date);
+        newLog.setCategory(category);
+        newLog.setDescription(description);
+
+        logList.add(newLog);
+    }
+
+    public Log getLog(int index) {
+        // Log
+        return logList.get(index);
+    }
+
 }
