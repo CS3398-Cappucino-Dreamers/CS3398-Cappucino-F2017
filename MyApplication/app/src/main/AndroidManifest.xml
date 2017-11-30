@@ -36,25 +36,39 @@
         </activity>
 
         <activity
-            android:name=".Login.Avatar"
-            android:label="Avatar"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:name=".Login.AvatarActivity"
+            android:label="AvatarActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Login.Avatar"
+            android:label="Avatar"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Login.Customize"
             android:label="Customize"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".Login.HomePage" />
-        <activity android:name=".Login.StatsActivity"></activity>
+        <activity android:name=".Login.StatsActivity" />
+
     </application>
 
 </manifest>

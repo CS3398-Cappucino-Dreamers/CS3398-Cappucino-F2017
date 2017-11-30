@@ -29,30 +29,14 @@ public class Customize extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customize_page);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.lightGray));
-        toolbar.setOnMenuItemClickListener(new MenuItemListener(this));
-
-        //create list of items to be displayed
-        //somehow create a way to click them to start an action of
-        //changing the avatar opb
-        final ArrayList<ItemList> itemList = ItemList.getitemsFromFile("AllItems.json", this);
-
-        // Creates adapter
-        ListAdapter adapter = new ListAdapter(this, itemList);
-
-        // Creates list view
-        mListView = (ListView) findViewById(R.id.list_view);
-        mListView.setAdapter(adapter);
 
 
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.appbar,menu);
 
         return super.onCreateOptionsMenu(menu);
-    }
+    }*/
 }
