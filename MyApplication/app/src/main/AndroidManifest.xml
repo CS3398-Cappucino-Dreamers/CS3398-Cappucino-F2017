@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".Login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,11 @@
         <activity
             android:name=".Login.SignUpActivity"
             android:label="@string/title_activity_sign_up"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Login.HPVendor"
+            android:label="HPVendor"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Login.CalendarActivity"
             android:label="CalendarActivity"
@@ -30,7 +34,27 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login.HomePage"></activity>
+
+        <activity
+            android:name=".Login.Avatar"
+            android:label="Avatar"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Login.Customize"
+            android:label="Customize"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Login.HomePage" />
+        <activity android:name=".Login.StatsActivity"></activity>
     </application>
 
 </manifest>
