@@ -36,7 +36,8 @@
         </activity>
         <activity android:name=".Login.HomePage" />
         <activity android:name=".Login.StatsActivity" />
-        <activity android:name=".Login.WorkoutTracker"></activity>
+        <activity android:name=".Login.WorkoutTracker" />
+        <activity android:name=".Login.LogActivity"></activity>
     </application>
 
 </manifest>

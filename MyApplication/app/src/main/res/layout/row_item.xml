@@ -14,32 +14,14 @@
         android:textColor="@android:color/black" />
 
 
-    <TextView
-        android:id="@+id/type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/name"
-        android:layout_marginTop="5dp"
-        android:text="Running x1, Biking x2"
-        android:textColor="@android:color/black" />
-
     <ImageView
-        android:id="@+id/item_info"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/go" />
-
-    <ImageView
-        android:id="@+id/edit"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:id="@+id/editBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/edit"
         android:layout_marginEnd="18dp"
         android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/item_info" />
+        android:layout_toStartOf="@+id/go" />
 
 
 
@@ -48,23 +30,23 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true">
 
-        <TextView
-            android:id="@+id/version_heading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dificulty:"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/version_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Easy"
-            android:textAppearance="?android:attr/textAppearanceButton"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
-
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/exercises"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Running x1, Biking x2"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/editBtn"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/go"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/go"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

@@ -9,25 +9,25 @@ package com.example.ben.fitordie.Login.DataModels;
  */
 public class ListDataModel {
 
-    String name;
-    String type;
+    String workoutName;
+    String exercises;
     String version_number;
     String feature;
 
-    public ListDataModel(String name, String type, String version_number, String feature ) {
-        this.name=name;
-        this.type=type;
+    public ListDataModel(String workoutName, String exercises, String version_number, String feature ) {
+        this.workoutName=workoutName;
+        this.exercises=exercises;
         this.version_number=version_number;
         this.feature=feature;
 
     }
 
     public String getName() {
-        return name;
+        return workoutName;
     }
 
-    public String getType() {
-        return type;
+    public String getExercises() {
+        return exercises;
     }
 
     public String getVersion_number() {

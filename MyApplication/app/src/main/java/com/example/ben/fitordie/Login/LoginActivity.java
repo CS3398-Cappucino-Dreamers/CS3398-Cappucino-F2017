@@ -30,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+
     private LevelListDrawable layerDrawable; // contains all the dots Images
     private ImageView dotsImg; // ImageView whose src is the levelListDrawable
 

@@ -1,0 +1,69 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:weightSum="10">
+
+    <EditText
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:background="@color/nav_bar_white"
+        android:id="@+id/setNumber"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="1"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:background="@color/colorAccent"
+        android:id="@+id/reps"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="10"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:background="@color/nav_bar_white"
+        android:id="@+id/weight"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="350lb"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:background="@color/colorAccent"
+        android:id="@+id/done"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="+"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@android:color/black" />
+
+
+</LinearLayout>
