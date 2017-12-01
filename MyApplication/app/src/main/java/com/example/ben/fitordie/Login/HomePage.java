@@ -136,11 +136,8 @@ public class HomePage extends AppCompatActivity {
     }
 
     private void addDrawerItems() {
-        String[] osArray = { "User Stats", "Calendar", "Avatar", "Tracker", "Logbook","Machine Learning", "Settings" };
+        String[] osArray = { "Homepage","User Stats", "Calendar", "Avatar", "Tracker", "Logbook","Machine Learning", "Settings" };
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
     }
-
-
-
 }

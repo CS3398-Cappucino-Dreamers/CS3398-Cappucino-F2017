@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -30,11 +31,18 @@ public class Avatar extends AppCompatActivity {
     private static final String TAG ="Avatar";
     private Thread animation; // animation thread
     private ProgressBar progressBar;
+    private ArrayAdapter<String> mAdapter;
+    private ListView mDrawerList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.avatar_page);
+
+        mDrawerList = (ListView)findViewById(R.id.navList); // get Drawer ListView
+        addDrawerItems(); // populate drawer
+        // sets click listeners for the drawer list
+        mDrawerList.setOnItemClickListener(new DrawerItemListener(this));
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -56,5 +64,11 @@ public class Avatar extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.appbar,menu);
 
         return super.onCreateOptionsMenu(menu);
+    }
+
+    private void addDrawerItems() {
+        String[] osArray = { "Homepage","User Stats", "Calendar", "Avatar", "Tracker", "Logbook","Machine Learning", "Settings" };
+        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
+        mDrawerList.setAdapter(mAdapter);
     }
 }
