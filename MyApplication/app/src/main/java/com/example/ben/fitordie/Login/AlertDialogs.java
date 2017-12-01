@@ -3,13 +3,22 @@ package com.example.ben.fitordie.Login;
 import android.content.Context;
 
 import android.app.AlertDialog;
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 public class AlertDialogs {
-    private static int paymentOptions = 0;
+    private static int paymentOptions;
+    private static int options;
+    private static Activity mActivity;
+
+    public AlertDialogs(Activity activity) {
+        this.mActivity = activity;
+    }
 
     /**
      * Creates a dialog to confirm purchases from the HP Vendor
@@ -43,7 +52,8 @@ public class AlertDialogs {
                             if(position >= 0 && position <= 2){
                                 if(userMaxHP == MAX_HP){
                                     // Dialog for max extended HP error
-                                    basicDialog(context, "ERROR", "You have already extended to the max HP capacity of " + MAX_HP);
+                                    basicDialog(context, "ERROR", "You have already extended to the max HP capacity of "
+                                            + MAX_HP, "Purchase canceled");
                                 }
                                 else{
                                     if(points >= Integer.parseInt(price)){
@@ -60,7 +70,8 @@ public class AlertDialogs {
                                     else{
                                         // Dialog for not enough points
 
-                                        basicDialog(context, "ERROR", "You do not have enough points to purchase " + item);
+                                        basicDialog(context, "ERROR", "You do not have enough points to purchase "
+                                                + item, "Purchase canceled");
 
                                     }
                                 }
@@ -68,11 +79,16 @@ public class AlertDialogs {
                             else if(position >= 3 && position <= 6){
                                 if(userHP == userMaxHP){
                                     // Dialog for full HP error
-                                    basicDialog(context, "ERROR", "Your HP is already full");
+                                    basicDialog(context, "ERROR", "Your HP is already full", "Purchase canceled");
                                 }
                                 else if(userHP + addHP > userMaxHP){
                                     // Dialog for max extended HP error
-                                    basicDialog(context, "ERROR", "You cannot purchase " + item);
+                                    basicDialog(context, "ERROR", "You cannot purchase "
+                                               + item, "Purchase canceled");
+                                }
+                                else if(userHP == 0){
+                                    // Dialog for dead avatar error
+                                    basicDialog(context, "ERROR", "Your avatar is dead...", "Purchase canceled");
                                 }
                                 else{
                                     if(points >= Integer.parseInt(price)){
@@ -88,14 +104,19 @@ public class AlertDialogs {
                                     }
                                     else{
                                         // Dialog for not enough points
-                                        basicDialog(context, "ERROR", "You do not have enough points to purchase " + item);
+                                        basicDialog(context, "ERROR", "You do not have enough points to purchase "
+                                                + item, "Purchase canceled");
                                     }
                                 }
                             }
                             else if(position == 7){
                                 if(userHP == userMaxHP){
                                     // Dialog for full HP error
-                                    basicDialog(context, "ERROR", "Your HP is already full");
+                                    basicDialog(context, "ERROR", "Your HP is already full", "Purchase canceled");
+                                }
+                                else if(userHP == 0){
+                                    // Dialog for dead avatar error
+                                    basicDialog(context, "ERROR", "Your avatar is dead...", "Purchase canceled");
                                 }
                                 else
                                 {
@@ -112,7 +133,8 @@ public class AlertDialogs {
                                     }
                                     else{
                                         // Dialog for not enough points
-                                        basicDialog(context, "ERROR", "You do not have enough points to purchase " + item);
+                                        basicDialog(context, "ERROR", "You do not have enough points to purchase "
+                                                + item, "Purchase canceled");
                                     }
                                 }
                             }
@@ -134,7 +156,7 @@ public class AlertDialogs {
                                       final AvatarInfo avatarInfo, final int position,
                                       final TextView pointsView, final TextView healthView, final ProgressBar HPBar)
     {
-        final CharSequence[] options = {" Points "," $$$ "," Challenge "};
+        final CharSequence[] options = {" Points "," $$$ "};
 
         final int points = avatarInfo.getPoints();
         final int userMaxHP = avatarInfo.getUserMaxHP();
@@ -142,7 +164,7 @@ public class AlertDialogs {
 
         if(userHP > 0){
             // Dialog for full HP error
-            basicDialog(context, "ERROR", "Your avatar is still alive...");
+            basicDialog(context, "ERROR", "Your avatar is still alive...", "Purchase canceled");
         }
         else{
             AlertDialog paymentOption = new AlertDialog.Builder(context)
@@ -156,10 +178,6 @@ public class AlertDialogs {
                                     Toast.makeText(context, options[option] + "selected", Toast.LENGTH_LONG).show();
                                     break;
                                 case 1:
-                                    paymentOptions = option;
-                                    Toast.makeText(context, options[option] + "selected", Toast.LENGTH_LONG).show();
-                                    break;
-                                case 2:
                                     paymentOptions = option;
                                     Toast.makeText(context, options[option] + "selected", Toast.LENGTH_LONG).show();
                                     break;
@@ -177,15 +195,13 @@ public class AlertDialogs {
                             switch (paymentOptions) {
                                 case 0:
                                     if(points >= Integer.parseInt(price)){
-                                        int pointsTemp = 0;
                                         int healthTemp = 0;
+                                        int pointsTemp = ItemPurchase.updatePoints(avatarInfo, points, Integer.parseInt(price));
 
                                         if(position == 8){
-                                            pointsTemp = ItemPurchase.updatePoints(avatarInfo, points, Integer.parseInt(price));
                                             healthTemp = ItemPurchase.revive(avatarInfo, userMaxHP);
                                         }
                                         else{
-                                            pointsTemp = ItemPurchase.updatePoints(avatarInfo, points, Integer.parseInt(price));
                                             healthTemp = ItemPurchase.restoreMaxHP(avatarInfo, userMaxHP);
                                         }
 
@@ -198,16 +214,27 @@ public class AlertDialogs {
                                     }
                                     else{
                                         // Dialog for not enough points
-                                        basicDialog(context, "ERROR", "You do not have enough points to purchase " + item);
+                                        basicDialog(context, "ERROR", "You do not have enough points to purchase "
+                                                + item,"Purchase canceled");
                                     }
                                     break;
                                 case 1:
-                                    // Code to do in-app purchase
-                                    Toast.makeText(context, "Purchased " + item, Toast.LENGTH_LONG).show();
-                                    break;
-                                case 2:
-                                    // Code to go to challenge page
-                                    Toast.makeText(context, "Purchased " + item, Toast.LENGTH_LONG).show();
+                                    // Place holder code & dialog for in-app purchase
+                                    int healthTemp = 0;
+
+                                    if(position == 8){
+                                        healthTemp = ItemPurchase.revive(avatarInfo, userMaxHP);
+                                    }
+                                    else{
+                                        healthTemp = ItemPurchase.restoreMaxHP(avatarInfo, userMaxHP);
+                                    }
+
+                                    updateHPBar(HPBar, healthTemp, userMaxHP);
+
+                                    healthView.setText(Integer.toString(healthTemp) + "/" + Integer.toString(userMaxHP));
+
+                                    basicDialog(context, "Purchased item", "Thank you for purchasing!   :)",
+                                            "Purchased item");
                                     break;
                             }
                         }
@@ -221,7 +248,7 @@ public class AlertDialogs {
      * Creates a basic dialog used for error messages
      *
      */
-    public static void basicDialog(final Context context, String title, String message)
+    public static void basicDialog(final Context context, String title, String message, final String error)
     {
         AlertDialog basicDialog = new AlertDialog.Builder(context)
                 .setTitle(title)
@@ -230,7 +257,7 @@ public class AlertDialogs {
                 .setNegativeButton("Close", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
-                        Toast.makeText(context, "Purchase canceled", Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, error, Toast.LENGTH_LONG).show();
                     }
                 })
 
