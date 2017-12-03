@@ -5,7 +5,7 @@ android {
     buildToolsVersion "26.0.0"
     defaultConfig {
         applicationId "com.example.ben.fitordie"
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -24,10 +24,15 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    // For bottom nav bar
+    // support lib for action bar
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
-    compile 'com.aurelhubert:ahbottomnavigation:2.0.4' // For bottom nav bar
+    compile 'com.aurelhubert:ahbottomnavigation:2.0.4'
+    compile 'com.android.support:support-core-utils:25.0.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.jjoe64:graphview:4.2.1'
     testCompile 'junit:junit:4.12'
 }

@@ -92,11 +92,19 @@ public class CircleProgressBar extends View {
         invalidate();// Notify the view to redraw it self (the onDraw method is called)
     }
 
-    private int adjustAlpha(int color, float factor) {
+    public int adjustAlpha(int color, float factor) {
         int alpha = Math.round(Color.alpha(color) * factor);
         int red = Color.red(color);
         int green = Color.green(color);
         int blue = Color.blue(color);
         return Color.argb(alpha, red, green, blue);
+    }
+
+    public void setColor(int color){
+
+        foregroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        foregroundPaint.setColor(color);
+        foregroundPaint.setStyle(Paint.Style.STROKE);
+        foregroundPaint.setStrokeWidth(strokeWidth);
     }
 }
