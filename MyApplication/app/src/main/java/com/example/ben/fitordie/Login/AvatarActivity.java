@@ -16,6 +16,8 @@ public class AvatarActivity extends AppCompatActivity {
     private ImageView hairColor;
     private ImageView eyeColor;
     private ImageView skinColor;
+    private ImageView background;
+
     private ImageView gender;
     private RadioGroup attributes;
     private SeekBar hairBar;
@@ -39,6 +41,8 @@ public class AvatarActivity extends AppCompatActivity {
         hairColor = (ImageView) findViewById(R.id.hair);
         eyeColor = (ImageView) findViewById(R.id.eyes);
         skinColor = (ImageView) findViewById(R.id.skin);
+        background = (ImageView) findViewById(R.id.background);
+
         attributes = (RadioGroup) findViewById(R.id.attributes);
         hairBar = (SeekBar) findViewById(R.id.hairBar);
         eyeBar = (SeekBar) findViewById(R.id.eyeBar);
@@ -87,7 +91,11 @@ public class AvatarActivity extends AppCompatActivity {
                         eyeColor.setImageResource(R.drawable.female_eyes_green);
                         hairColor.setImageResource(R.drawable.female_hair_lightbrown);
                         skinColor.setImageResource(R.drawable.female_skin_tan);
+                        background.setImageResource(R.drawable.femalebackground);
 
+                        eyeBar.setVisibility(View.INVISIBLE);
+                        skinBar.setVisibility(View.INVISIBLE);
+                        hairBar.setVisibility(View.INVISIBLE);
 
                         genderFlag = 0;
                         break;
@@ -96,6 +104,11 @@ public class AvatarActivity extends AppCompatActivity {
                         hairColor.setImageResource(R.drawable.male_hair_lightbrown);
                         eyeColor.setImageResource(R.drawable.male_eyes_green);
                         skinColor.setImageResource(R.drawable.male_skin_tan);
+                        background.setImageResource(R.drawable.malebackground);
+
+                        eyeBar.setVisibility(View.INVISIBLE);
+                        skinBar.setVisibility(View.INVISIBLE);
+                        hairBar.setVisibility(View.INVISIBLE);
 
 
                         genderFlag = 1;
