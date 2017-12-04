@@ -56,7 +56,7 @@ public class LogActivity extends AppCompatActivity {
 
         BottomNavBar bottomNavBar = BottomNavBar.getInstance(this,findViewById(R.id.bottom_navigation2));
         bottomNavBar.setOnTabSelectedListener(new BottomNavListener(this)); // listener for bottom nav
-        bottomNavBar.setCurrentItem(1);
+
 
         timeTxt = (TextView)findViewById(R.id.timeText);
         listView=(ListView)findViewById(R.id.navExerciseList);
