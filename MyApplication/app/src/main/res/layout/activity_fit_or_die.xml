@@ -57,7 +57,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/sign_up"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="@+id/username"
+            app:layout_constraintRight_toRightOf="@+id/email"
             app:layout_constraintTop_toBottomOf="@+id/forgotPassword"
             app:layout_constraintVertical_bias="0.133"
             android:layout_marginEnd="8dp" />
@@ -70,7 +70,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/loginBtn"
             android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="@+id/username"
+            app:layout_constraintRight_toRightOf="@+id/email"
             android:layout_marginEnd="8dp" />
 
         <Button
@@ -81,7 +81,7 @@
             android:layout_marginTop="8dp"
             android:text="Log in"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="@+id/username"
+            app:layout_constraintRight_toRightOf="@+id/email"
             app:layout_constraintTop_toBottomOf="@+id/password"
             app:layout_constraintVertical_bias="0.0" />
 
@@ -93,11 +93,11 @@
             android:ems="10"
             android:inputType="textPassword"
             android:hint="@string/passwordHint"
-            app:layout_constraintRight_toRightOf="@+id/username"
-            app:layout_constraintTop_toBottomOf="@+id/username" />
+            app:layout_constraintRight_toRightOf="@+id/email"
+            app:layout_constraintTop_toBottomOf="@+id/email" />
 
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/email"
             android:hint="@string/usernameHint"
             android:layout_width="160dp"
             android:layout_height="45dp"
