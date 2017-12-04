@@ -11,6 +11,8 @@ import android.widget.SeekBar;
 
 import com.example.ben.fitordie.R;
 
+import java.util.ArrayList;
+
 public class AvatarActivity extends AppCompatActivity {
     private Button customizeBtn;
     private ImageView hairColor;
@@ -25,8 +27,110 @@ public class AvatarActivity extends AppCompatActivity {
     private SeekBar skinBar;
     private SeekBar genderBar;
     private int genderFlag;
+    private int[] avatarData = new int[4];
 
 
+    /*********************
+     * Set/Refresh Avatar *
+     *********************/
+    public void setAvatar(int genderIndex, int skinIndex, int hairIndex, int eyeIndex)
+    {
+
+        if(genderIndex == 0){
+            gender.setImageResource(R.drawable.female_lines);
+            setSkinColor(0,skinIndex);
+            setHairColor(0,hairIndex);
+            setEyeColor(0,eyeIndex);
+        }
+        else {
+            gender.setImageResource(R.drawable.male_lines);
+            setSkinColor(1,skinIndex);
+            setHairColor(1,hairIndex);
+            setEyeColor(1,eyeIndex);
+        }
+    }
+
+    /*********************
+     * Set Skin Color    *
+     *********************/
+    public void setSkinColor(int genderIndex, int skinIndex){
+        if(skinIndex == 0) {
+            if (genderIndex == 0) {
+                skinColor.setImageResource(R.drawable.female_skin_tan);
+            } else {
+                skinColor.setImageResource(R.drawable.male_skin_tan);
+            }
+        }
+        else if(skinIndex == 1) {
+            if (genderIndex == 0) {
+                skinColor.setImageResource(R.drawable.female_skin_dark);
+            } else {
+                skinColor.setImageResource(R.drawable.male_skin_dark);
+            }
+        }
+        else if(skinIndex == 2) {
+            if (genderIndex == 0) {
+                skinColor.setImageResource(R.drawable.female_skin_pale);
+            } else {
+                skinColor.setImageResource(R.drawable.male_skin_pale);
+            }
+        }
+    }
+    /*********************
+     * Set Hair Color    *
+     *********************/
+
+    public void setHairColor(int genderIndex, int hairIndex){
+        if(hairIndex == 0) {
+            if (genderIndex == 0) {
+                hairColor.setImageResource(R.drawable.female_hair_darkbrown);
+            } else {
+                hairColor.setImageResource(R.drawable.male_hair_darkbrown);
+            }
+        }
+        else if(hairIndex == 1) {
+            if (genderIndex == 0) {
+                hairColor.setImageResource(R.drawable.female_hair_lightbrown);
+            } else {
+                hairColor.setImageResource(R.drawable.male_hair_lightbrown);
+            }
+        }
+        else if(hairIndex == 2) {
+            if (genderIndex == 0) {
+                hairColor.setImageResource(R.drawable.female_hair_blond);
+            } else {
+                hairColor.setImageResource(R.drawable.male_hair_blond);
+            }
+        }
+    }
+
+    /******************
+     * Set Eye Color  *
+     ******************/
+
+    public void setEyeColor(int genderIndex, int eyeIndex){
+        if(eyeIndex == 0) {
+            if (genderIndex == 0) {
+                eyeColor.setImageResource(R.drawable.female_eyes_green);
+            } else {
+                eyeColor.setImageResource(R.drawable.male_eyes_green);
+            }
+        }
+        else if(eyeIndex == 1) {
+            if (genderIndex == 0) {
+                eyeColor.setImageResource(R.drawable.female_eyes_blue);
+            } else {
+                eyeColor.setImageResource(R.drawable.male_eyes_blue);
+            }
+        }
+        else if(eyeIndex == 2) {
+            if (genderIndex == 0) {
+                eyeColor.setImageResource(R.drawable.female_eyes_brown);
+            } else {
+                eyeColor.setImageResource(R.drawable.male_eyes_brown);
+            }
+        }
+    }
 
 
     @Override
@@ -34,6 +138,10 @@ public class AvatarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avatar);
 
+        avatarData[0] = 0;
+        avatarData[1] = 0;
+        avatarData[2] = 0;
+        avatarData[3] = 0;
 
 
         customizeBtn = (Button) findViewById(R.id.customize);
@@ -71,7 +179,6 @@ public class AvatarActivity extends AppCompatActivity {
                         skinBar.setVisibility(View.INVISIBLE);
                         // TODO Something
                         break;
-
                     case R.id.hairChoice:
                         hairBar.setVisibility(View.VISIBLE);
                         eyeBar.setVisibility(View.INVISIBLE);
@@ -87,31 +194,37 @@ public class AvatarActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
                 switch(progress){
                     case 0:
-                        gender.setImageResource(R.drawable.female_lines);
-                        eyeColor.setImageResource(R.drawable.female_eyes_green);
-                        hairColor.setImageResource(R.drawable.female_hair_lightbrown);
-                        skinColor.setImageResource(R.drawable.female_skin_tan);
-                        background.setImageResource(R.drawable.femalebackground);
-
-                        eyeBar.setVisibility(View.INVISIBLE);
-                        skinBar.setVisibility(View.INVISIBLE);
-                        hairBar.setVisibility(View.INVISIBLE);
-
-                        genderFlag = 0;
+                        avatarData[0] = 0;
+                        setAvatar(avatarData[0],avatarData[1],avatarData[2],avatarData[3]);
                         break;
                     case 1:
-                        gender.setImageResource(R.drawable.male_lines);
-                        hairColor.setImageResource(R.drawable.male_hair_lightbrown);
-                        eyeColor.setImageResource(R.drawable.male_eyes_green);
-                        skinColor.setImageResource(R.drawable.male_skin_tan);
-                        background.setImageResource(R.drawable.malebackground);
-
-                        eyeBar.setVisibility(View.INVISIBLE);
-                        skinBar.setVisibility(View.INVISIBLE);
-                        hairBar.setVisibility(View.INVISIBLE);
-
-
-                        genderFlag = 1;
+                        avatarData[0] = 1;
+                        setAvatar(avatarData[0],avatarData[1],avatarData[2],avatarData[3]);
+                        break;
+                }
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+        skinBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
+        {
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                switch(progress){
+                    case 0:
+                        avatarData[1] = 0;
+                        setAvatar(avatarData[0],avatarData[1],avatarData[2],avatarData[3]);
+                        break;
+                    case 1:
+                        avatarData[1] = 1;
+                        setAvatar(avatarData[0],avatarData[1],avatarData[2],avatarData[3]);
+                        break;
+                    case 2:
+                        avatarData[1] = 2;
+                        setAvatar(avatarData[0],avatarData[1],avatarData[2],avatarData[3]);
                         break;
                 }
             }
@@ -130,67 +243,43 @@ public class AvatarActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
                 switch(progress){
                     case 0:
-                        if(genderFlag == 0) {
-                            hairColor.setImageResource(R.drawable.female_hair_lightbrown);
-                        }
-                        else {
-                            hairColor.setImageResource(R.drawable.male_hair_lightbrown);
-                        }
+                        avatarData[2] = 0;
+                        setAvatar(avatarData[0],avatarData[1],avatarData[2],avatarData[3]);
                         break;
                     case 1:
-                        if(genderFlag == 0) {
-                            hairColor.setImageResource(R.drawable.female_hair_darkbrown);
-                        }
-                        else {
-                            hairColor.setImageResource(R.drawable.male_hair_darkbrown);
-                        }
+                        avatarData[2] = 1;
+                        setAvatar(avatarData[0],avatarData[1],avatarData[2],avatarData[3]);
                         break;
                     case 2:
-                        if(genderFlag == 0) {
-                            hairColor.setImageResource(R.drawable.female_hair_blond);
-                        }
-                        else {
-                            hairColor.setImageResource(R.drawable.male_hair_blond);
-                        }
+                        avatarData[2] = 2;
+                        setAvatar(avatarData[0],avatarData[1],avatarData[2],avatarData[3]);
                         break;
                 }
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
+
+
         eyeBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
         {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
                 switch(progress){
                     case 0:
-                        if(genderFlag == 0) {
-                            eyeColor.setImageResource(R.drawable.female_eyes_green);
-                        }
-                        else {
-                            eyeColor.setImageResource(R.drawable.male_eyes_green);
-                        }
+                        avatarData[3] = 0;
+                        setAvatar(avatarData[0],avatarData[1],avatarData[2],avatarData[3]);
                         break;
                     case 1:
-                        if(genderFlag == 0) {
-                            eyeColor.setImageResource(R.drawable.female_eyes_blue);
-                        }
-                        else {
-                            eyeColor.setImageResource(R.drawable.male_eyes_blue);
-                        }
+                        avatarData[3] = 1;
+                        setAvatar(avatarData[0],avatarData[1],avatarData[2],avatarData[3]);
                         break;
                     case 2:
-                        if(genderFlag == 0) {
-                            eyeColor.setImageResource(R.drawable.female_eyes_brown);
-                        }
-                        else {
-                            eyeColor.setImageResource(R.drawable.male_eyes_brown);
-                        }
+                        avatarData[3] = 2;
+                        setAvatar(avatarData[0],avatarData[1],avatarData[2],avatarData[3]);
                         break;
                 }
             }
@@ -203,61 +292,5 @@ public class AvatarActivity extends AppCompatActivity {
 
             }
         });
-
-        skinBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
-        {
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-                switch(progress){
-                    case 0:
-                        if(genderFlag == 0) {
-                            skinColor.setImageResource(R.drawable.female_skin_tan);
-                        }
-                        else {
-                            skinColor.setImageResource(R.drawable.male_skin_tan);
-                        }
-                        break;
-                    case 1:
-                        if(genderFlag == 0) {
-                            skinColor.setImageResource(R.drawable.female_skin_dark);
-                        }
-                        else {
-                            skinColor.setImageResource(R.drawable.male_skin_dark);
-                        }
-                        break;
-                    case 2:
-                        if(genderFlag == 0) {
-                            skinColor.setImageResource(R.drawable.female_skin_pale);
-                        }
-                        else {
-                            skinColor.setImageResource(R.drawable.male_skin_pale);
-                        }
-                        break;
-                }
-            }
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-
-
-
-/*
-        customizeBtn.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-            //    Intent intent = new Intent(AvatarActivity.this, Customize.class);
-            //    startActivity(intent);
-                hairColor.setImageResource(R.drawable.female_hair_lightbrown);
-
-            }
-        });
-
-*/
     }
 }

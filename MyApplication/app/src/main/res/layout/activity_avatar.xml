@@ -4,19 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/blackishGray">
 
     <ImageView
         android:id="@+id/background"
-        android:layout_width="400dp"
+        android:layout_width="0dp"
         android:layout_height="390dp"
-        android:layout_marginLeft="0dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/femalebackground"
-        tools:layout_editor_absoluteY="41dp"
-        app:layout_constraintHorizontal_bias="0.0" />
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <ImageView
         android:id="@+id/maleIcon"
@@ -52,8 +54,8 @@
 
     <ImageView
         android:id="@+id/skin"
-        android:layout_width="260dp"
-        android:layout_height="351dp"
+        android:layout_width="266dp"
+        android:layout_height="365dp"
         app:srcCompat="@drawable/female_skin_pale"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -63,25 +65,28 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintVertical_bias="0.158"
+        app:layout_constraintHorizontal_bias="0.504" />>
+
     <ImageView
         android:id="@+id/eyes"
-        android:layout_width="260dp"
-        android:layout_height="351dp"
-        app:srcCompat="@drawable/female_eyes_blue"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="266dp"
+        android:layout_height="365dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.18" />
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.158"
+        app:srcCompat="@drawable/female_eyes_blue" />
     <ImageView
         android:id="@+id/hair"
-        android:layout_width="260dp"
-        android:layout_height="351dp"
+        android:layout_width="266dp"
+        android:layout_height="365dp"
         app:srcCompat="@drawable/female_hair_blond"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -91,12 +96,13 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintVertical_bias="0.158"
+        app:layout_constraintHorizontal_bias="0.504" />
 
     <ImageView
         android:id="@+id/gender"
-        android:layout_width="260dp"
-        android:layout_height="351dp"
+        android:layout_width="266dp"
+        android:layout_height="365dp"
         app:srcCompat="@drawable/female_lines"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -106,15 +112,21 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintVertical_bias="0.158"
+        app:layout_constraintHorizontal_bias="0.504" />
 
     <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="485dp"
+        android:id="@+id/menuBackground"
+        android:layout_width="0dp"
         android:layout_height="196dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="-1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/menutexture"
-        tools:layout_editor_absoluteX="-46dp"
-        tools:layout_editor_absoluteY="432dp" />
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/background" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
