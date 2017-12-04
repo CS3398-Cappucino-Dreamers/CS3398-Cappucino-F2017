@@ -26,7 +26,6 @@ public class AvatarActivity extends AppCompatActivity {
     private SeekBar eyeBar;
     private SeekBar skinBar;
     private SeekBar genderBar;
-    private int genderFlag;
     private int[] avatarData = new int[4];
 
 
@@ -38,12 +37,14 @@ public class AvatarActivity extends AppCompatActivity {
 
         if(genderIndex == 0){
             gender.setImageResource(R.drawable.female_lines);
+            background.setImageResource(R.drawable.femalebackground);
             setSkinColor(0,skinIndex);
             setHairColor(0,hairIndex);
             setEyeColor(0,eyeIndex);
         }
         else {
             gender.setImageResource(R.drawable.male_lines);
+            background.setImageResource(R.drawable.malebackground);
             setSkinColor(1,skinIndex);
             setHairColor(1,hairIndex);
             setEyeColor(1,eyeIndex);
@@ -156,7 +157,7 @@ public class AvatarActivity extends AppCompatActivity {
         eyeBar = (SeekBar) findViewById(R.id.eyeBar);
         skinBar = (SeekBar) findViewById(R.id.skinBar);
         genderBar = (SeekBar) findViewById(R.id.genderBar);
-        genderFlag = 0;
+        setAvatar(avatarData[0],avatarData[1],avatarData[2],avatarData[3]);
 
 
 
