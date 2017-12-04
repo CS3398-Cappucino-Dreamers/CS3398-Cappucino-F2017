@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.ben.fitordie.Login.AvatarActivity;
 import com.example.ben.fitordie.Login.CalendarActivity;
 import com.example.ben.fitordie.Login.HomePage;
 import com.example.ben.fitordie.Login.WorkoutTracker;
@@ -39,6 +40,12 @@ public class DrawerItemListener implements ListView.OnItemClickListener {
                 case 3:
                     Toast.makeText(context,"Coming in version 2",Toast.LENGTH_SHORT).show();
                     break;
+                case 4:
+                    intent = new Intent(context, AvatarActivity.class);
+                    context.startActivity(intent);
+                    break;
+
+
 
             }
         }
