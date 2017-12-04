@@ -14,11 +14,20 @@ public class ExerciseDataModel {
     String weight;
     String done;
 
-    public ExerciseDataModel(String setNumber, String reps, String weight, String done ) {
+    boolean isTitle;
+    String title;
+
+    public ExerciseDataModel(String setNumber, String reps, String weight, String done) {
         this.setNumber=setNumber;
         this.reps=reps;
         this.weight=weight;
         this.done=done;
+
+    }
+
+    public ExerciseDataModel(boolean isTitle, String title) {
+        this.isTitle = isTitle;
+        this.title = title;
 
     }
 
@@ -36,6 +45,14 @@ public class ExerciseDataModel {
 
     public String getDone() {
         return done;
+    }
+
+    public boolean isTitle(){
+        return isTitle;
+    }
+
+    public String getTitle(){
+        return title;
     }
 
 }

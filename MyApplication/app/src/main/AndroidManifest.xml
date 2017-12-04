@@ -3,6 +3,7 @@
     package="com.example.ben.fitordie">
 
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -37,7 +38,10 @@
         <activity android:name=".Login.HomePage" />
         <activity android:name=".Login.StatsActivity" />
         <activity android:name=".Login.WorkoutTracker" />
-        <activity android:name=".Login.LogActivity"></activity>
+        <activity android:name=".Login.LogActivity"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
     </application>
 
 </manifest>

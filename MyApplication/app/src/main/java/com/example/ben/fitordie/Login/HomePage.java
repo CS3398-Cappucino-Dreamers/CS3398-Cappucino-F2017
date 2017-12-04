@@ -38,6 +38,7 @@ public class HomePage extends AppCompatActivity {
     private ListView mDrawerList; // listview for the navigation drawer
     private ArrayAdapter<String> mAdapter; // Adapts Data
     private ProgressBar progressBar;
+    public static int avatarHealth = 70;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +67,7 @@ public class HomePage extends AppCompatActivity {
         goToCalendarIntent = new Intent(this, CalendarActivity.class);
 
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
-        progressBar.setProgress(100);
+        progressBar.setProgress(0);
 
 
     }
@@ -92,13 +93,13 @@ public class HomePage extends AppCompatActivity {
                 }
                 // Animation
                 int b = 0;
-                for(int i = 0; i < 70; i++) {
+                for(int i = 0; i < avatarHealth; i++) {
                     final int a = i;
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             circleProgressBar.setProgress(a);
-                            progressBar.setProgress(100-a);
+                            progressBar.setProgress(a);
                             circleProgressBar.setColor(Color.rgb(0,0,a*3));
                             progressField.setText("Goal: " + a + "% Complete");
                         }
@@ -121,6 +122,8 @@ public class HomePage extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
     }
+
+
 
     /**
      * Button listener that takes you to the calenar activity.. Just temporary for demo #1

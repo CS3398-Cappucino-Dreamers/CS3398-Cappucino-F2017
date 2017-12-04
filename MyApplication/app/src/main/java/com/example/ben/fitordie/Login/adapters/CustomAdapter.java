@@ -30,7 +30,7 @@ public class CustomAdapter extends ArrayAdapter<ListDataModel> implements View.O
 
 
     private ArrayList<ListDataModel> dataSet;
-
+    private Intent intent;
     Context mContext;
 
     // View lookup cache
@@ -51,7 +51,7 @@ public class CustomAdapter extends ArrayAdapter<ListDataModel> implements View.O
     @Override
     public void onClick(View v) {
 
-        Intent intent;
+
         /*int position=(Integer) v.getTag();
         Object object= getItem(position);
         ListDataModel dataModel=(ListDataModel)object*/;
@@ -59,7 +59,9 @@ public class CustomAdapter extends ArrayAdapter<ListDataModel> implements View.O
         switch (v.getId())
         {
             case R.id.go:
-                intent = new Intent(mContext, LogActivity.class);
+                if(intent == null) {
+                    intent = new Intent(mContext, LogActivity.class);
+                }
                 mContext.startActivity(intent);
                 break;
             case R.id.editBtn:

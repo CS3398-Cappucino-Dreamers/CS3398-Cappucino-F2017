@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -38,7 +39,9 @@ public class CustomExerciseAdapter extends ArrayAdapter<ExerciseDataModel> imple
         TextView txtSet;
         TextView txtRep;
         TextView txtWeight;
-        TextView txtDone;
+        CheckBox checkDone;
+
+        TextView txtTitle;
     }
 
     public CustomExerciseAdapter(ArrayList<ExerciseDataModel> data, Context context) {
@@ -71,26 +74,43 @@ public class CustomExerciseAdapter extends ArrayAdapter<ExerciseDataModel> imple
         }
     }
 
-    private int lastPosition = -1;
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
+
+        Log.d(TAG, "getView: " + position);
+
         // Get the data item for this position
         ExerciseDataModel dataModel = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         ViewHolder viewHolder; // view lookup cache stored in tag
 
+        if(dataModel.isTitle()){
+
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            convertView = inflater.inflate(R.layout.row_exercise_title, parent, false);
+
+            viewHolder = new ViewHolder();
+            viewHolder.txtTitle = (TextView) convertView.findViewById(R.id.rowTitle);
+            viewHolder.txtTitle.setText(dataModel.getTitle());
+
+
+            return convertView;
+        }
+
+
         final View result;
 
-        if (convertView == null) {
+        if (true) {
 
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.row_exercise_item, parent, false);
-            viewHolder.txtSet = (EditText) convertView.findViewById(R.id.setNumber);
             viewHolder.txtRep = (EditText) convertView.findViewById(R.id.reps);
             viewHolder.txtWeight = (EditText) convertView.findViewById(R.id.weight);
-            viewHolder.txtDone = (EditText) convertView.findViewById(R.id.done);
+            viewHolder.checkDone = (CheckBox) convertView.findViewById(R.id.done);
 
             result=convertView;
 
@@ -100,19 +120,10 @@ public class CustomExerciseAdapter extends ArrayAdapter<ExerciseDataModel> imple
             result=convertView;
         }
 
-        Animation animation = AnimationUtils.loadAnimation(mContext, (position > lastPosition) ? R.anim.up_from_bottom : R.anim.down_from_top);
-        result.startAnimation(animation);
-        lastPosition = position;
 
-        if(viewHolder.txtSet == null){
-            Log.d(TAG, "getView: nulll");
-        }
-        viewHolder.txtSet.setText(dataModel.getSetNumber());
         viewHolder.txtRep.setText(dataModel.getReps());
         viewHolder.txtWeight.setText(dataModel.getWeight());
-        viewHolder.txtDone.setText(dataModel.getDone());
         // Return the completed view to render on screen
-        Log.d(TAG, "getView: " + (convertView == null));
         return convertView;
 
     }

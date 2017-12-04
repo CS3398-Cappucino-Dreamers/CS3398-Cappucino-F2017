@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.ben.fitordie.Login.DataModels.ListDataModel;
 import com.example.ben.fitordie.Login.adapters.CustomAdapter;
@@ -24,6 +26,8 @@ public class WorkoutTracker extends AppCompatActivity {
     ArrayList<ListDataModel> dataModels;
     ListView listView;
     private static CustomAdapter adapter;
+    private TextView healthBarText;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,13 @@ public class WorkoutTracker extends AppCompatActivity {
 
         listView=(ListView)findViewById(R.id.navList);
 
+        healthBarText = (TextView)findViewById(R.id.healthBarText);
+        progressBar = (ProgressBar)findViewById(R.id.healthBarTracker);
+
+        progressBar.setProgress(HomePage.avatarHealth);
+        healthBarText.setText("Health: " + HomePage.avatarHealth*10 + "/1000");
+
+
         dataModels= new ArrayList<>();
 
         dataModels.add(new ListDataModel("Chest", "Bench x1, Barbell Bench x2, Flys x3, Dips x2, Bench x1, Barbell Bench x2, Flys x3, Dips x2", "1","September 23, 2008"));
@@ -51,7 +62,7 @@ public class WorkoutTracker extends AppCompatActivity {
         dataModels.add(new ListDataModel("Chest", "Bench x1, Barbell Bench x2, Flys x3, Dips x2, Bench x1, Barbell Bench x2, Flys x3, Dips x2", "1","September 23, 2008"));
 
 
-        adapter= new CustomAdapter(dataModels,getApplicationContext());
+        adapter= new CustomAdapter(dataModels,this);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -65,4 +76,13 @@ public class WorkoutTracker extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        progressBar.setProgress(HomePage.avatarHealth);
+        healthBarText.setText("Health: " + HomePage.avatarHealth*10 + "/1000");
+    }
+
+
 }

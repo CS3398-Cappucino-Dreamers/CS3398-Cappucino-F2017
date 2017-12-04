@@ -18,12 +18,13 @@
         android:textSize="18dp"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:inputType="phone"/>
 
     <EditText
         android:paddingTop="7dp"
         android:paddingBottom="7dp"
-        android:background="@color/colorAccent"
+        android:background="#a4b0b5"
         android:id="@+id/reps"
         android:layout_width="0dp"
         android:layout_weight="3"
@@ -33,7 +34,8 @@
         android:textSize="18dp"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:inputType="phone"/>
 
     <EditText
         android:paddingTop="7dp"
@@ -48,22 +50,21 @@
         android:textSize="18dp"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:inputType="phone"/>
 
-    <EditText
+    <CheckBox
+        android:background="#a4b0b5"
+        android:layout_alignParentTop="true"
         android:paddingTop="7dp"
+        android:gravity="center"
         android:paddingBottom="7dp"
-        android:background="@color/colorAccent"
-        android:id="@+id/done"
         android:layout_width="0dp"
         android:layout_weight="2"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:text="+"
-        android:textSize="18dp"
-        android:textAlignment="center"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/black" />
+        android:layout_height="match_parent"
+        android:id="@+id/done"
+        android:layout_centerHorizontal="true"
+        />
 
 
 </LinearLayout>
