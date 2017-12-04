@@ -27,11 +27,17 @@ public class DrawerItemListener implements ListView.OnItemClickListener {
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             switch(position){
+                case 0:
+                    Toast.makeText(context,"Coming in version 2",Toast.LENGTH_SHORT).show();
+                    break;
                 case 1: intent = new Intent(context, CalendarActivity.class);
                     context.startActivity(intent);
                     break;
                 case 2: intent = new Intent(context, WorkoutTracker.class);
                     context.startActivity(intent);
+                    break;
+                case 3:
+                    Toast.makeText(context,"Coming in version 2",Toast.LENGTH_SHORT).show();
                     break;
 
             }

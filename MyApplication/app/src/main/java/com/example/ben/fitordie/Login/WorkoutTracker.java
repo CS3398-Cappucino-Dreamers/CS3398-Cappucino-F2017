@@ -1,15 +1,19 @@
 package com.example.ben.fitordie.Login;
 
+import android.content.Intent;
+import android.support.annotation.IdRes;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.*;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.ben.fitordie.Login.DataModels.ListDataModel;
@@ -28,6 +32,8 @@ public class WorkoutTracker extends AppCompatActivity {
     private static CustomAdapter adapter;
     private TextView healthBarText;
     private ProgressBar progressBar;
+    private BottomNavBar bottomNavBar;
+    String TAG = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +47,9 @@ public class WorkoutTracker extends AppCompatActivity {
         toolbar.setOnMenuItemClickListener(new MenuItemListener(this)); // listener for menu
 
 
-        BottomNavBar bottomNavBar = BottomNavBar.getInstance(this,findViewById(R.id.bottom_navigation2));
+        bottomNavBar = BottomNavBar.getInstance(this,findViewById(R.id.bottom_navigation2));
         bottomNavBar.setOnTabSelectedListener(new BottomNavListener(this)); // listener for bottom nav
+        bottomNavBar.setCurrentItem(1);
 
         listView=(ListView)findViewById(R.id.navList);
 
@@ -55,11 +62,11 @@ public class WorkoutTracker extends AppCompatActivity {
 
         dataModels= new ArrayList<>();
 
-        dataModels.add(new ListDataModel("Chest", "Bench x1, Barbell Bench x2, Flys x3, Dips x2, Bench x1, Barbell Bench x2, Flys x3, Dips x2", "1","September 23, 2008"));
-        dataModels.add(new ListDataModel("Chest", "Bench x1, Barbell Bench x2, Flys x3, Dips x2, Bench x1, Barbell Bench x2, Flys x3, Dips x2", "1","September 23, 2008"));
-        dataModels.add(new ListDataModel("Chest", "Bench x1, Barbell Bench x2, Flys x3, Dips x2, Bench x1, Barbell Bench x2, Flys x3, Dips x2", "1","September 23, 2008"));
-        dataModels.add(new ListDataModel("Chest", "Bench x1, Barbell Bench x2, Flys x3, Dips x2, Bench x1, Barbell Bench x2, Flys x3, Dips x2", "1","September 23, 2008"));
-        dataModels.add(new ListDataModel("Chest", "Bench x1, Barbell Bench x2, Flys x3, Dips x2, Bench x1, Barbell Bench x2, Flys x3, Dips x2", "1","September 23, 2008"));
+        dataModels.add(new ListDataModel("Chest", "Bench x3, SkullCrushers x3,", "1","September 23, 2008"));
+        dataModels.add(new ListDataModel("Back", "Barbell Rows x3, PullBacks x3, Bent Over Rows x3", "1","September 23, 2008"));
+        dataModels.add(new ListDataModel("Legs", "Squat x3, RDL x4, HipThrusts x3", "1","September 23, 2008"));
+        dataModels.add(new ListDataModel("Shoulder", "Arnold Shoudlers x3, Flys x3, Shrugs x3", "1","September 23, 2008"));
+        dataModels.add(new ListDataModel("ChestV2", "Bench x1, Barbell Bench x2, Flys x3, Dips x2, Bench x1, Barbell Bench x2, Flys x3, Dips x2", "1","September 23, 2008"));
 
 
         adapter= new CustomAdapter(dataModels,this);
@@ -75,6 +82,36 @@ public class WorkoutTracker extends AppCompatActivity {
 //                        .setAction("No action", null).show();
             }
         });
+
+        RadioGroup imagePicker = (RadioGroup)findViewById(R.id.imagePicker);
+        imagePicker.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                Intent myIntent;
+                switch(checkedId){
+                    case R.id.chest_btn:
+                        myIntent = new Intent(getBaseContext(),LogActivity.class);
+                        LogActivity.title = "Chest";
+                        startActivity(myIntent);
+                        break;
+                    case R.id.legs_btn:
+                        myIntent = new Intent(getBaseContext(),LogActivity.class);
+                        LogActivity.title = "Legs";
+                        startActivity(myIntent);
+                        break;
+                    case R.id.shoulder_btn:
+                        myIntent = new Intent(getBaseContext(),LogActivity.class);
+                        LogActivity.title = "Shoulder";
+                        startActivity(myIntent);
+                        break;
+                    case R.id.back_btn:
+                        myIntent = new Intent(getBaseContext(),LogActivity.class);
+                        LogActivity.title = "Back";
+                        startActivity(myIntent);
+                        break;
+                }
+            }
+        });
     }
 
     @Override
@@ -82,6 +119,10 @@ public class WorkoutTracker extends AppCompatActivity {
         super.onResume();
         progressBar.setProgress(HomePage.avatarHealth);
         healthBarText.setText("Health: " + HomePage.avatarHealth*10 + "/1000");
+        if(bottomNavBar != null){
+            bottomNavBar.setCurrentItem(1);
+        }
+
     }
 
 

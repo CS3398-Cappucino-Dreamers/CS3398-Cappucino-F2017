@@ -27,6 +27,8 @@ import com.example.ben.fitordie.Login.listeners.DrawerItemListener;
 import com.example.ben.fitordie.Login.listeners.MenuItemListener;
 import com.example.ben.fitordie.R;
 
+import org.w3c.dom.Text;
+
 public class HomePage extends AppCompatActivity {
 
     private CircleProgressBar circleProgressBar;
@@ -38,6 +40,7 @@ public class HomePage extends AppCompatActivity {
     private ListView mDrawerList; // listview for the navigation drawer
     private ArrayAdapter<String> mAdapter; // Adapts Data
     private ProgressBar progressBar;
+    private TextView healthText;
     public static int avatarHealth = 70;
 
     @Override
@@ -59,15 +62,21 @@ public class HomePage extends AppCompatActivity {
 
         BottomNavBar bottomNavBar = BottomNavBar.getInstance(this,findViewById(R. id.bottom_navigation));
         bottomNavBar.setOnTabSelectedListener(new BottomNavListener(this)); // listener for bottom nav
+        bottomNavBar.setCurrentItem(0);
 
         progressField = (TextView)findViewById(R.id.progressField);
         setBtnListeners();
+
+
 
         circleProgressBar = (CircleProgressBar)findViewById(R.id.custom_progressBar);
         goToCalendarIntent = new Intent(this, CalendarActivity.class);
 
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
         progressBar.setProgress(0);
+
+        healthText = (TextView)findViewById(R.id.homepageHealthText);
+        healthText.setText(""+0);
 
 
     }
@@ -93,17 +102,21 @@ public class HomePage extends AppCompatActivity {
                 }
                 // Animation
                 int b = 0;
-                for(int i = 0; i < avatarHealth; i++) {
+                for(int i = 0; i <= avatarHealth; i++) {
                     final int a = i;
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            circleProgressBar.setProgress(a);
+                            circleProgressBar.setProgress((float)a/(float)1.41);
                             progressBar.setProgress(a);
-                            circleProgressBar.setColor(Color.rgb(0,0,a*3));
-                            progressField.setText("Goal: " + a + "% Complete");
+                            healthText.setText("Health: "+a*10+"/1000");
+                            circleProgressBar.setColor(Color.rgb(0,0,(int)a*3));
+                            progressField.setText("Goal: " + (int)((float)a/(float)1.41) + "% Complete");
                         }
+
+
                     });
+
                     try {
 
                         Thread.currentThread().sleep(50);
@@ -139,7 +152,7 @@ public class HomePage extends AppCompatActivity {
     }
 
     private void addDrawerItems() {
-        String[] osArray = { "User Stats", "Calendar", "Tracker", "Logbook","Machine Learning", "Settings" };
+        String[] osArray = { "User Stats", "Calendar", "Tracker","Machine Learning",};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
     }

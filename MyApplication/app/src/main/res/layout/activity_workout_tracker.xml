@@ -121,53 +121,53 @@
                         android:layout_height="wrap_content" >
 
                         <RadioButton
-                            android:id="@+id/radioButton0"
+                            android:id="@+id/chest_btn"
                             android:layout_width="115dp"
                             android:layout_height="115dp"
                             android:layout_marginLeft="50dp"
                             android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:adjustViewBounds="true"
-                            android:background="@color/healthGreen"
+                            android:background="@drawable/chest_icon"
                             android:button="@null"
                             android:gravity="center_vertical"
                             android:scaleType="fitXY" />
 
                         <RadioButton
-                            android:id="@+id/radioButton1"
+                            android:id="@+id/legs_btn"
                             android:layout_width="115dp"
                             android:layout_height="115dp"
                             android:layout_marginLeft="50dp"
                             android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:adjustViewBounds="true"
-                            android:background="@color/pastel_redishPink"
+                            android:background="@drawable/legs_icon"
                             android:button="@null"
                             android:gravity="center_vertical"
                             android:scaleType="fitXY" />
 
                         <RadioButton
-                            android:id="@+id/radioButton2"
+                            android:id="@+id/back_btn"
                             android:layout_width="115dp"
                             android:layout_height="115dp"
                             android:layout_marginLeft="50dp"
                             android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:adjustViewBounds="true"
-                            android:background="@color/colorAccent"
+                            android:background="@drawable/back_icon"
                             android:button="@null"
                             android:gravity="center_vertical"
                             android:scaleType="fitXY" />
 
                         <RadioButton
-                            android:id="@+id/radioButton3"
+                            android:id="@+id/shoulder_btn"
                             android:layout_width="115dp"
                             android:layout_height="115dp"
                             android:layout_marginLeft="50dp"
                             android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:adjustViewBounds="true"
-                            android:background="@color/colorPrimaryDark"
+                            android:background="@drawable/shoulders_icon"
                             android:button="@null"
                             android:gravity="center_vertical"
                             android:scaleType="fitXY" />

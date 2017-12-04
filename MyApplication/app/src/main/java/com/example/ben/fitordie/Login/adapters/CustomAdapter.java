@@ -39,6 +39,7 @@ public class CustomAdapter extends ArrayAdapter<ListDataModel> implements View.O
         TextView txtExercises;
         ImageView go;
         ImageView edit;
+        int index;
     }
 
     public CustomAdapter(ArrayList<ListDataModel> data, Context context) {
@@ -59,10 +60,7 @@ public class CustomAdapter extends ArrayAdapter<ListDataModel> implements View.O
         switch (v.getId())
         {
             case R.id.go:
-                if(intent == null) {
-                    intent = new Intent(mContext, LogActivity.class);
-                }
-                mContext.startActivity(intent);
+                goToCorrectLog((String)v.getTag());
                 break;
             case R.id.editBtn:
                 Log.d(TAG, "onClick: ");
@@ -109,11 +107,19 @@ public class CustomAdapter extends ArrayAdapter<ListDataModel> implements View.O
         viewHolder.txtName.setText(dataModel.getName());
         viewHolder.txtExercises.setText(dataModel.getExercises());
         viewHolder.go.setOnClickListener(this);
+        viewHolder.go.setTag(viewHolder.txtName.getText());
         viewHolder.edit.setOnClickListener(this);
-        viewHolder.go.setTag(position);
         // Return the completed view to render on screen
         Log.d(TAG, "getView: " + (convertView == null));
         return convertView;
 
+    }
+
+    public void goToCorrectLog(String title){
+
+        Intent myIntent = new Intent(mContext,LogActivity.class);
+        LogActivity.title = title;
+        mContext.startActivity(myIntent);
+        Log.d(TAG, "goToCorrectLog: "+ title);
     }
 }

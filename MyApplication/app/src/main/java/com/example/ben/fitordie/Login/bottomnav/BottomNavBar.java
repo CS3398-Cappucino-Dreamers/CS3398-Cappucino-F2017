@@ -41,7 +41,7 @@ public class BottomNavBar extends AppCompatActivity{
         bottomNavigation.addItem(item2);
         bottomNavigation.addItem(item3);
 
-        bottomNavigation.setCurrentItem(0);
+        //bottomNavigation.setCurrentItem(0);
 
     }
 
@@ -62,5 +62,9 @@ public class BottomNavBar extends AppCompatActivity{
 
         public void setOnTabSelectedListener(AHBottomNavigation.OnTabSelectedListener listener){
             bottomNavigation.setOnTabSelectedListener(listener);
+        }
+
+        public void setCurrentItem(int index){
+            bottomNavigation.setCurrentItem(index);
         }
 }

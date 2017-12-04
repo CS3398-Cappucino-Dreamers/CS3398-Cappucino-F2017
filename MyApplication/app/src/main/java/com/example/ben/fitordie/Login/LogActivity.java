@@ -1,9 +1,12 @@
 package com.example.ben.fitordie.Login;
 
+import android.content.Intent;
 import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.*;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -35,6 +38,9 @@ public class LogActivity extends AppCompatActivity {
     private TextView timeTxt;
     private TextView pointsTxt;
     private Button stopButton;
+    public static  String title = "Chest";
+    String TAG = "";
+    private TextView workoutTitle;
 
 
     @Override
@@ -60,8 +66,8 @@ public class LogActivity extends AppCompatActivity {
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                stopFlag = true;
                 timeCounter.cancel();
+                time = 0;
             }
         });
 
@@ -69,19 +75,19 @@ public class LogActivity extends AppCompatActivity {
 
         dataModels= new ArrayList<>();
 
-        dataModels.add(new ExerciseDataModel(true,"Bench Press"));
-        dataModels.add(new ExerciseDataModel("1", "10" , "350lb", "+"));
-        dataModels.add(new ExerciseDataModel("1", "10" , "350lb", "+"));
 
-        dataModels.add(new ExerciseDataModel(true,"Dips"));
-        dataModels.add(new ExerciseDataModel("1", "10" , "6", "+"));
-        dataModels.add(new ExerciseDataModel("1", "12" , "2", "+"));
-
-        dataModels.add(new ExerciseDataModel(true,"Skull Crushers"));
-        dataModels.add(new ExerciseDataModel("1", "12" , "50", "+"));
-        dataModels.add(new ExerciseDataModel("1", "12" , "10", "+"));
+        if(title.equals("Chest"))
+            addChestWorkout(dataModels);
+        if(title.equals("Back"))
+            addBackWorkout(dataModels);
+        if(title.equals("Shoulder"))
+            addShouldersWorkout(dataModels);
+        if(title.equals("Legs"))
+            addLegWorkout(dataModels);
 
 
+        workoutTitle = (TextView)findViewById(R.id.workoutTitle);
+        workoutTitle.setText(title);
 
 
 
@@ -100,10 +106,11 @@ public class LogActivity extends AppCompatActivity {
         });
 
 
-        if(!stopFlag) {
+        if(timeCounter == null) {
             timeCounter = new Timer();
             timeCounter.schedule(new updateTime(), 0, 1000);
         }
+
 
 
     }
@@ -132,4 +139,83 @@ public class LogActivity extends AppCompatActivity {
             });
         }
     }
+
+    public void addChestWorkout(ArrayList<ExerciseDataModel> dataModel){
+
+        dataModels.add(new ExerciseDataModel(true,"Bench Press"));
+        dataModels.add(new ExerciseDataModel("1", "10" , "135lb"));
+        dataModels.add(new ExerciseDataModel("2", "10" , "155lb"));
+        dataModels.add(new ExerciseDataModel("3", "8" , "165lb"));
+
+        dataModels.add(new ExerciseDataModel(true,"Dips"));
+        dataModels.add(new ExerciseDataModel("1", "10" , "N/A"));
+        dataModels.add(new ExerciseDataModel("2", "12" , "N/A"));
+        dataModels.add(new ExerciseDataModel("3", "12" , "N/A"));
+
+        dataModels.add(new ExerciseDataModel(true,"Skull Crushers"));
+        dataModels.add(new ExerciseDataModel("1", "12" , "30lb"));
+        dataModels.add(new ExerciseDataModel("2", "12" , "40lb"));
+        dataModels.add(new ExerciseDataModel("3", "12" , "40lb"));
+    }
+
+
+    public void addShouldersWorkout(ArrayList<ExerciseDataModel> dataModel){
+
+        dataModels.add(new ExerciseDataModel(true,"Arnold Shoulders"));
+        dataModels.add(new ExerciseDataModel("1", "10" , "135lb"));
+        dataModels.add(new ExerciseDataModel("2", "10" , "155lb"));
+        dataModels.add(new ExerciseDataModel("3", "8" , "165lb"));
+
+        dataModels.add(new ExerciseDataModel(true,"Flys"));
+        dataModels.add(new ExerciseDataModel("1", "10" , "10lb"));
+        dataModels.add(new ExerciseDataModel("2", "12" , "20lb"));
+        dataModels.add(new ExerciseDataModel("3", "12" , "25lb"));
+
+        dataModels.add(new ExerciseDataModel(true,"Shrugs"));
+        dataModels.add(new ExerciseDataModel("1", "12" , "150lb"));
+        dataModels.add(new ExerciseDataModel("2", "12" , "170lb"));
+        dataModels.add(new ExerciseDataModel("3", "12" , "190lb"));
+    }
+
+    public void addBackWorkout(ArrayList<ExerciseDataModel> dataModel){
+
+        dataModels.add(new ExerciseDataModel(true,"Barbell Rows"));
+        dataModels.add(new ExerciseDataModel("1", "10" , "135lb"));
+        dataModels.add(new ExerciseDataModel("2", "10" , "155lb"));
+        dataModels.add(new ExerciseDataModel("3", "8" , "165lb"));
+
+        dataModels.add(new ExerciseDataModel(true,"PullBacks"));
+        dataModels.add(new ExerciseDataModel("1", "10" , "10lb"));
+        dataModels.add(new ExerciseDataModel("2", "12" , "20lb"));
+        dataModels.add(new ExerciseDataModel("3", "12" , "25lb"));
+
+        dataModels.add(new ExerciseDataModel(true,"Bent Over Rows"));
+        dataModels.add(new ExerciseDataModel("1", "12" , "150lb"));
+        dataModels.add(new ExerciseDataModel("2", "12" , "170lb"));
+        dataModels.add(new ExerciseDataModel("3", "12" , "190lb"));
+    }
+
+
+
+    public void addLegWorkout(ArrayList<ExerciseDataModel> dataModel){
+
+        dataModels.add(new ExerciseDataModel(true,"Squat"));
+        dataModels.add(new ExerciseDataModel("1", "10" , "135lb"));
+        dataModels.add(new ExerciseDataModel("2", "10" , "155lb"));
+        dataModels.add(new ExerciseDataModel("3", "8" , "165lb"));
+
+        dataModels.add(new ExerciseDataModel(true,"RDL"));
+        dataModels.add(new ExerciseDataModel("1", "10" , "10lb"));
+        dataModels.add(new ExerciseDataModel("2", "12" , "20lb"));
+        dataModels.add(new ExerciseDataModel("3", "12" , "25lb"));
+
+        dataModels.add(new ExerciseDataModel(true,"Hip Thrusts"));
+        dataModels.add(new ExerciseDataModel("1", "12" , "150lb"));
+        dataModels.add(new ExerciseDataModel("2", "12" , "170lb"));
+        dataModels.add(new ExerciseDataModel("3", "12" , "190lb"));
+    }
+
+
+
+
 }
