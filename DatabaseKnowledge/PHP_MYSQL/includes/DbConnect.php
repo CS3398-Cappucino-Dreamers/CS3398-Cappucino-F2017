@@ -2,10 +2,10 @@
 		
 	class DbConnect
 	{
-		//Variable to store database link
+
 		private $con;
 	 
-		//Class constructor
+
 		function __construct()
 		{
 	 

@@ -2,45 +2,63 @@
  
 class DbOperation
 {
-    //Database connection link
-    private $con;
  
-    //Class constructor
+    private $con;
+	private $conn;
+
     function __construct()
     {
-        //Getting the DbConnect.php file
+
         require_once dirname(__FILE__) . '/DbConnect.php';
  
-        //Creating a DbConnect object to connect to the database
+
         $db = new DbConnect();
  
-        //Initializing our connection link of this class
-        //by calling the method connect of DbConnect class
         $this->con = $db->connect();
+		
     }
 	
-	/*
-	* The create operation
-	* When this method is called a new record is created in the database
-	* May change database to have a fist/last name too. Guid will be added server side later.
-	*/
-	function addUser($username, $email, $password, $guid){
-		$stmt = $this->con->prepare("INSERT INTO login (username, email, password, guid) VALUES (?, ?, ?, ?)");
-		$stmt->bind_param("ssss", $username, $email, $password, $guid);
+
+	function addUser($username, $email, $password){
+		
+		$stmt1 = $this->con->prepare("SELECT * FROM login WHERE email = ?");
+		$stmt1->bind_param("s", $email);
+		if($stmt1->execute())
+			$stmt1->bind_result($us, $em, $pw);
+		else
+			return 2;
+		
+		$users = array(); 
+		
+		while($stmt1->fetch()){
+			$user  = array();
+			$user['username'] = $us; 
+			$user['email'] = $em; 
+			$user['password'] = $pw; 
+			
+			array_push($users, $user); 
+		}
+		$size = sizeof($users);
+		if($size != 0)
+		{
+			return 1;
+		}
+		
+		
+		$stmt = $this->con->prepare("INSERT INTO login (username, email, password) VALUES (?, ?, ?)");
+		$stmt->bind_param("sss", $username, $email, $password);
 		if($stmt->execute())
-			return true; 
-		return false; 
+			return 0; 
+		return 2; 
 	}
 
-	/*
-	* The read operation
-	* When this method is called it is returning all the existing record of the database
-	* Not useful for app in this state.
-	*/
-	function getUsers(){
-		$stmt = $this->con->prepare("SELECT username email, password, guid FROM login");
-		$stmt->execute();
-		$stmt->bind_result($username, $email, $password, $guid);
+	function authUser($email, $password){
+		$stmt = $this->con->prepare("SELECT * FROM login WHERE email = ? AND password = ?");
+		$stmt->bind_param("ss", $email, $password);
+		if($stmt->execute())
+			$stmt->bind_result($username, $email, $password);
+		else
+			return false;
 		
 		$users = array(); 
 		
@@ -49,7 +67,36 @@ class DbOperation
 			$user['username'] = $username; 
 			$user['email'] = $email; 
 			$user['password'] = $password; 
-			$user['guid'] = $guid;
+			
+			array_push($users, $user); 
+		}
+		$size = sizeof($users);
+		if($size > 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+		
+	}	
+	
+	
+
+	function getUsers(){
+		$stmt = $this->con->prepare("SELECT username, email, password FROM login");
+		$stmt->execute();
+		$stmt->bind_result($username, $email, $password);
+		
+		$users = array(); 
+		
+		while($stmt->fetch()){
+			$user  = array();
+			$user['username'] = $username; 
+			$user['email'] = $email; 
+			$user['password'] = $password; 
 			
 			array_push($users, $user); 
 		}
@@ -57,28 +104,20 @@ class DbOperation
 		return $users; 
 	}
 	
-	/*
-	* The update operation
-	* When this method is called the record with the given guid is updated with the new given values
-	* May not allow updating email? Also the user will not know their guid.
-	*/
-	function updateUser($username, $email, $password, $guid){
-		$stmt = $this->con->prepare("UPDATE login SET username = ?, email = ?, password = ? WHERE guid = ?");
-		$stmt->bind_param("ssss", $username, $email, $password, $guid);
+
+	function updateUser($username, $email, $password){
+		$stmt = $this->con->prepare("UPDATE login SET username = ?, password = ? WHERE email = ?");
+		$stmt->bind_param("sss", $username, $email, $password);
 		if($stmt->execute())
 			return true; 
 		return false; 
 	}
 	
 	
-	/*
-	* The delete operation
-	* When this method is called record is deleted for the given id
-	* May not be useful for app.
-	*/
-	function deleteUser($guid){
-		$stmt = $this->con->prepare("DELETE FROM login WHERE guid = ? ");
-		$stmt->bind_param("s", $guid);
+	
+	function deleteUser($email){
+		$stmt = $this->con->prepare("DELETE FROM login WHERE email = ? ");
+		$stmt->bind_param("s", $email);
 		if($stmt->execute())
 			return true; 
 		

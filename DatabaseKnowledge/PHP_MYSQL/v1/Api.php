@@ -46,38 +46,69 @@
 			//we will create a record in the database
 			case 'addUser':
 				//first check the parameters required for this request are available or not 
-				isTheseParametersAvailable(array('username','email','password','guid'));
+				isTheseParametersAvailable(array('username','email','password'));
+				//$email = 'email';
+				if ( !preg_match('/[A-Za-z0-9]*@[A-Za-z]*[.][A-Za-z]{3}/', $_POST['email']) )
+				{
+					$response['error'] = true; 
+					$response['message'] = 'Not a vaid email';
+				}
+				else
+				{
+					$db = new DbOperation();
 				
-				//creating a new dboperation object
+					$result = $db->addUser(
+						$_POST['username'],
+						$_POST['email'],
+						$_POST['password']
+					);
+					
+					switch($result){
+						case 0:
+							$response['error'] = false; 
+							$response['message'] = 'Account created successfully';
+							break;
+						case 1:
+							$response['error'] = true; 
+							$response['message'] = 'Account already exists for email';
+							break;
+						case 2:
+							$response['error'] = true; 
+							$response['message'] = 'connection error';
+							break;
+						default:
+							$response['error'] = true; 
+							$response['message'] = 'some other error';
+							break;
+					}
+					
+				}
+
+				
+			break; 
+			
+			case 'authUser':
+				isTheseParametersAvailable(array('email','password'));
+				
 				$db = new DbOperation();
 				
-				//creating a new record in the database
-				$result = $db->addUser(
-					$_POST['username'],
+				$result = $db->authUser(
 					$_POST['email'],
-					$_POST['password'],
-					$_POST['guid']
+					$_POST['password']
 				);
 				
 
-				//if the record is created adding success to response
 				if($result){
-					//record is created means there is no error
 					$response['error'] = false; 
-
-					//in message we have a success message
-					$response['message'] = 'User added successfully';
+					$response['message'] = 'User authenticated successfully';
 
 				}else{
 
-					//if record is not added that means there is an error 
 					$response['error'] = true; 
-
-					//and we have the error message
-					$response['message'] = 'Some error occurred please try again';
+					$response['message'] = 'Username or password invalid';
 				}
-				
 			break; 
+			
 			
 			//the READ operation
 			//if the call is getUsers
@@ -91,13 +122,12 @@
 
 			//the UPDATE operation
 			case 'updateUser':
-				isTheseParametersAvailable(array('username','email','password','guid'));
+				isTheseParametersAvailable(array('username','email','password'));
 				$db = new DbOperation();
 				$result = $db->updateUser(
 					$_POST['username'],
 					$_POST['email'],
-					$_POST['password'],
-					$_POST['guid']
+					$_POST['password']
 				);
 				
 				if($result){
@@ -113,9 +143,9 @@
 			case 'deleteUser':
 
 				//for the delete operation we are getting a GET parameter from the url having the id of the record to be deleted
-				if(isset($_GET['guid'])){
+				if(isset($_GET['email'])){
 					$db = new DbOperation();
-					if($db->deleteUser($_GET['guid'])){
+					if($db->deleteUser($_GET['email'])){
 						$response['error'] = false; 
 						$response['message'] = 'User deleted successfully';
 					}else{
@@ -124,7 +154,7 @@
 					}
 				}else{
 					$response['error'] = true; 
-					$response['message'] = 'Nothing to delete, provide a guid please';
+					$response['message'] = 'Nothing to delete, provide an email please';
 				}
 			break; 
 		}
