@@ -1,0 +1,76 @@
+{
+  "AvatarItems": [
+    {
+      "id": "0",
+      "name": "item 1",
+      "price": "100",
+      "icon": "https://image.ibb.co/iyQ3F6/Revive.png"
+    },
+    {
+      "id": "1",
+      "name": "item 2",
+      "price": "10",
+      "icon": "https://image.ibb.co/dWBN8G/ExtendHP.png"
+    },
+    {
+      "id": "2",
+      "name": "item 3",
+      "price": "20",
+      "icon": "https://image.ibb.co/dWBN8G/ExtendHP.png"
+    },
+    {
+      "id": "3",
+      "name": "item 4",
+      "price": "10",
+      "icon": "https://image.ibb.co/iyQ3F6/Revive.png"
+    },
+    {
+      "id": "4",
+      "name": "item 5",
+      "price": "10",
+      "icon": "https://image.ibb.co/kKbpoG/RegenHP.png"
+    },
+    {
+      "id": "5",
+      "name": "item 6",
+      "price": "30",
+      "icon": "https://image.ibb.co/kKbpoG/RegenHP.png"
+    },
+    {
+      "id": "6",
+      "name": "item 7",
+      "price": "10",
+      "icon": "https://image.ibb.co/kKbpoG/RegenHP.png"
+    },
+    {
+      "id": "7",
+      "name": "item 8",
+      "price": "50",
+      "icon": "https://image.ibb.co/iyQ3F6/Revive.png"
+    },
+    {
+      "id": "8",
+      "name": "item 9",
+      "price": "10",
+      "icon": "https://image.ibb.co/kKbpoG/RegenHP.png"
+    },
+    {
+      "id": "9",
+      "name": "item 10",
+      "price": "10",
+      "icon": "https://image.ibb.co/iyQ3F6/Revive.png"
+    },
+    {
+      "id": "10",
+      "name": "item 11",
+      "price": "10",
+      "icon": "https://image.ibb.co/kKbpoG/RegenHP.png"
+    },
+    {
+      "id": "11",
+      "name": "item 12",
+      "price": "10",
+      "icon": "https://image.ibb.co/iyQ3F6/Revive.png"
+    }
+  ]
+}

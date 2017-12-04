@@ -34,5 +34,6 @@ dependencies {
     compile 'com.android.support:support-core-utils:25.0.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.jjoe64:graphview:4.2.1'
+    compile 'com.android.billingclient:billing:1.0'
     testCompile 'junit:junit:4.12'
 }
