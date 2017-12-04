@@ -59,8 +59,7 @@ public class StatsActivity extends AppCompatActivity {
                         new DataPoint(rand.nextInt()%19 + 1, rand.nextInt()%19 + 1),
                         new DataPoint(rand.nextInt()%19 + 1, rand.nextInt()%19 + 1)
                 }));
-                String points = "lol";
-                points.concat(graph.getSecondScale().getMaxY(true) + " ");
+                String points = "Graph Variant #" + progress;
                 textView.setText(points);
             }
 

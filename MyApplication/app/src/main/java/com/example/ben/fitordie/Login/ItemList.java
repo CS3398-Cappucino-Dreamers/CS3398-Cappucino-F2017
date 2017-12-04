@@ -16,6 +16,9 @@ public class ItemList {
     public String description;
     public String price;
     public String icon;
+    public String currency;
+    public String price2;
+    public String addHP;
     public String category;
 
     public static ArrayList<ItemList> getitemsFromFile(String filename, Context context){
@@ -35,6 +38,9 @@ public class ItemList {
                 item.description = items.getJSONObject(i).getString("description");
                 item.price = items.getJSONObject(i).getString("price");
                 item.icon = items.getJSONObject(i).getString("icon");
+                item.currency = items.getJSONObject(i).getString("currency");
+                item.price2 = items.getJSONObject(i).getString("price2");
+                item.addHP = items.getJSONObject(i).getString("addHP");
                 item.category = items.getJSONObject(i).getString("category");
 
                 itemList.add(item);

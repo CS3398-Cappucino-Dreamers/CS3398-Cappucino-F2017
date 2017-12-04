@@ -2,10 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ben.fitordie">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    
     <application
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -37,16 +36,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login.HomePage" />
-        <activity android:name=".Login.StatsActivity" />
-        <activity android:name=".Login.WorkoutTracker" />
-        <activity android:name=".Login.LogActivity"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
         <activity
-            android:name=".Login.AvatarActivity"
-            android:label="AvatarActivity"
+            android:name=".Login.Avatar"
+            android:label="Avatar"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,6 +46,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".Login.HomePage" />
+        <activity android:name=".Login.StatsActivity" />
+        <activity android:name=".Login.AvatarShop"></activity>
     </application>
 
 </manifest>
