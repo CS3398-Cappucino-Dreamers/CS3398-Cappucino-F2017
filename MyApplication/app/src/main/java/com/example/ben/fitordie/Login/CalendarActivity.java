@@ -1,8 +1,9 @@
 package com.example.ben.fitordie.Login;
 
-/**
- * Created by chucks on 10/7/2017.
- */
+/*********************
+ * Calendar Activity *
+ *********************/
+
 
 import android.net.ParseException;
 import android.os.Bundle;
