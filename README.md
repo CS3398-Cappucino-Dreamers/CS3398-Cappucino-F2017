@@ -1,5 +1,8 @@
 # CS3398-Cappucino-F2017
-Fit or Die offers a new take on fitness apps. Unlike other fitness apps you can't just quit. In Fit or Die, users are given an avatar which corresponds to your activity in the app. As you become more fit, so will your avatar. However, if you stop actively working out, your avatar will die and your account will be locked. We know some people deserve second chances, so to get back into your account users can either complete a difficult fitness challenge or pay a small fee to open it back up.
+
+![alt text](/MyApplication/app/src/main/res/drawable/fit_or_die_logo.png?raw=true)
+
+Fit or Die offers a new take on fitness apps. Unlike other fitness apps you can't just quit. In Fit or Die, users are given a customizable avatar which corresponds to your activity in the app. As you become more fit, so will your avatar. However, if you stop actively working out, your avatar will slowly lose health untill death and your account will be locked. We know some people deserve second chances, so to get back into your account users can either complete a difficult fitness challenge or pay a small fee to open it back up.
 
 <h3>Status 12/4/2017:</h3>
 
